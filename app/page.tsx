@@ -11,8 +11,15 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-left justify-between lg:p-24 lg:mt-24 p-12 mt-12">
-      <div className="pl-130px m-auto flex flex-col">
+    <main className="flex flex-row justify-center flex-wrap lg:p-24 lg:mt-24 p-12 mt-12">
+      <Image 
+        className='mb-16'
+        src={"/img/CyrilMaranber.svg"}
+        alt="Cyril Maranber Developer Web"
+        width={500}
+        height={500}
+        />
+      <div className="pl-130px ml-16 flex flex-col">
       <div className={irish.className}>
         <h1 className={"xl:text-9xl text-7xl"}><p>Cyril</p><p> Maranber</p></h1>
         <h2 className={"xl:text-3xl text-2xl mt-8"}>Web3 Developer</h2>
