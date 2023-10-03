@@ -1,7 +1,8 @@
-import Header from './components/Header'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Providers from './providers'
+import Footer from "./components/Footer"
+import Header from './components/Header'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,13 +22,10 @@ export default function RootLayout({
 
       <body className={inter.className + " bg-primary flex flex-col min-h-screen "}>
         <div id="background">
-        <Providers>
-          <Header />
-          {/* <button onClick={toggle}>Toggle</button> */}
+          <Providers>
+            <Header />
             {children}
-          <footer className='fixed bottom-0'>
-            Here is the footer
-          </footer>
+            <Footer />
           </Providers>
         </div>
       </body>
