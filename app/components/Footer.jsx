@@ -1,3 +1,5 @@
+import Image from 'next/image';
+import Link from 'next/image';
 import React from 'react'
 
 const Footer = () => {
@@ -6,8 +8,17 @@ const Footer = () => {
     const year = date.getFullYear();
 
   return (
-    <footer className='flex justify-center fixed bottom-0 w-full bg-secondary shadow-lg'>
-        <p>&copy;Copyright Cyril Maranber - {year}</p>
+    <footer className='flex fixed bottom-0 w-full bg-secondary shadow-lg'>
+        <a className='p-2' href={"https://github.com/AntFrasier"} target={"_blanck"} alt={"Cyril Maranber Github profile link"}>
+            <Image
+             className='justify-self-start'
+                src={"github-mark.svg"}
+                alt='github logo'
+                width={22}
+                height={21}
+                />
+         </a>
+        <p className='p-2 text-xs ml-auto mr-auto'>&copy;Copyright Cyril Maranber - {year}</p>
     </footer>
   )
 }
