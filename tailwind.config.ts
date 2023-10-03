@@ -5,7 +5,68 @@ const config: Config = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  ], darkTheme: "dark",
+  // DaisyUI theme colors
+  daisyui: {
+    themes: [
+      {
+        light: {
+          primary: "#ffffff",
+          "primary-content": "#212638",
+          secondary: "#DAE8FF",
+          "secondary-content": "#212638",
+          accent: "#93BBFB",
+          "accent-content": "#212638",
+          neutral: "#212638",
+          "neutral-content": "#ffffff",
+          "base-100": "#ffffff",
+          "base-200": "#f4f8ff",
+          "base-300": "#DAE8FF",
+          "base-content": "#212638",
+          info: "#93BBFB",
+          success: "#34EEB6",
+          warning: "#FFCF72",
+          foregroundRgb: "255, 255, 255",
+          backgroundStartRgb: "18, 33, 62",
+          backgroundEndRgb: "#ffffff",
+          btnOver:"#3CA8E6",
+          error: "#FF8863",
+
+          "--rounded-btn": "9999rem",
+
+          ".tooltip": {
+            "--tooltip-tail": "6px",
+          },
+        },
+      },
+      {
+        dark: {
+          primary: "#12213E",
+          backgroundEndRgb:"#000000",
+          "primary-content": "#F9FBFF",
+          secondary: "#323f61",
+          "secondary-content": "#F9FBFF",
+          accent: "#4969A6",
+          "accent-content": "#F9FBFF",
+          neutral: "#F9FBFF",
+          "neutral-content": "#385183",
+          "base-100": "#385183",
+          "base-200": "#2A3655",
+          "base-300": "#212638",
+          "base-content": "#F9FBFF",
+          info: "#385183",
+          success: "#34EEB6",
+          warning: "#FFCF72",
+          error: "#FF8863",
+
+          "--rounded-btn": "9999rem",
+
+          ".tooltip": {
+            "--tooltip-tail": "6px",
+            "--tooltip-color": "hsl(var(--p))",
+          },
+        },
+      },]},
   theme: {
     extend: {
       backgroundImage: {
@@ -14,7 +75,20 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
+    screens: {
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+    },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }
 export default config
