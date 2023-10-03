@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-left justify-between p-24 mt-24">
+    <main className="flex flex-col items-left justify-between lg:p-24 lg:mt-24 p-12 mt-12">
       <div className="pl-130px m-auto flex flex-col">
       <div className={irish.className}>
         <h1 className={"xl:text-9xl text-7xl"}><p>Cyril</p><p> Maranber</p></h1>
