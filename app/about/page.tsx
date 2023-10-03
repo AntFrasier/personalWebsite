@@ -3,12 +3,15 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: "About | Cyril Maranber ",
-  description: "Here are all my contacts, please feel free to contat me for any web2 or web3 project. I studie all the proposition, open source or not. C U !",
+  description: "Here is a description about me, who i am and what i did.",
 }
 
 const About = () => {
   return (
-    <div>About</div>
+    <main className="flex flex-col items-center justify-between md:px-24 px-8 pt-24">
+        <h1>About </h1>
+       
+    </main>
   )
 }
 
