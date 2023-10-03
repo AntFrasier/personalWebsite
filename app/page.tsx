@@ -21,7 +21,7 @@ export default function Home() {
         Welcome to my personal website ! I'm a french web developer pationate with blockchain technologies and web development. Here are some of my expérience and skills ! 
       </p>
       <Link href={"/contacts"} className='m-auto'>
-        <button type="button" className="btn-primary mt-36 ">Contact</button>
+        <button type="button" className="btn-secondary hover-underline mt-36 ">Contact</button>
       </Link>
       </div>
     </main>
