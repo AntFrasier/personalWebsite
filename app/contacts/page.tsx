@@ -76,7 +76,7 @@ const Contacts = () => {
                 return (
                     <li key={social.id}>
                         <a href={social.url} target='_blank'>
-                            <div className='flex flex-row items-center border-2 bg-secondary rounded-2xl border-primary-content gap-3 px-5 py-2 w-full'>
+                            <div className='flex flex-row items-center border-2 bg-secondary rounded-2xl origin-center ease-in-out duration-300 border-primary-content hover:border-info gap-3 px-5 py-2 w-full'>
                                 <Image 
                                     src={`/img/${social.imgUri}`}
                                     alt={social.alt}
