@@ -13,7 +13,7 @@ const config: Config = {
         light: {
           primary: "#ffffff",
           "primary-content": "#212638",
-          secondary: "#DAE8FF",
+          secondary: "#3CA8E6",
           "secondary-content": "#212638",
           accent: "#93BBFB",
           "accent-content": "#212638",
@@ -44,7 +44,7 @@ const config: Config = {
           primary: "#12213E",
           backgroundEndRgb:"#000000",
           "primary-content": "#F9FBFF",
-          secondary: "#323f61",
+          secondary: "#1465BA",
           "secondary-content": "#F9FBFF",
           accent: "#4969A6",
           "accent-content": "#F9FBFF",
