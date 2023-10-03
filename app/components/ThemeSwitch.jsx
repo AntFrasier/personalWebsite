@@ -16,14 +16,7 @@ const ThemeSwitch = () => {
     }
 
   return (
-    <button type={"button"}>  
-        <Image 
-            src={resolvedTheme == 'dark' ? "light.svg" : "dark.svg"}
-            alt="Switch to light mode svg"
-            width={30}
-            height={30}
-            onClick={() => resolvedTheme == 'dark' ? setTheme("light") : setTheme("dark")}
-            />
+    <button type={"button"} className="dark-mode after:bg-primary-content" onClick={() => resolvedTheme == 'dark' ? setTheme("light") : setTheme("dark")}>
     </button>
   )
 }
