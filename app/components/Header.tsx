@@ -12,7 +12,7 @@ const Header = () => {
         <div id="logo">
             <Image 
               // src={"cyrilMaranberlogo.svg"}
-              src={"logo.svg"}
+              src={"/img/logo.svg"}
               alt="cyril maranber web developer logo"
               width={250}
               height={77}
