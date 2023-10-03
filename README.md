@@ -11,11 +11,13 @@ burger transition anime
 should do the "logo" in css instead image
 ~~add hover for icons top left~~
 ~~do footer~~
+change favicon
 
 do pages :
-    -contact
+    ~~-contact~~
     -about
     -portfolio
     "-blog"
-"
+
+push to prod
 
