@@ -18,7 +18,7 @@ export default function Home() {
         <h2 className={"xl:text-3xl text-2xl mt-8"}>Web3 Developer</h2>
       </div>
       <p className={"mt-8 max-w-screen-lg"}>
-        Welcome to my personal website ! I'm a french web developer pationate with blockchain technologies and web development. Here are some of my expérience and skills ! 
+        Welcome to my personal website ! I&apos;m a french web developer pationate with blockchain technologies and web development. Here are some of my expérience and skills ! 
       </p>
       <Link href={"/contacts"} className='m-auto'>
         <button type="button" className="btn-secondary hover-underline mt-36 ">Contact</button>

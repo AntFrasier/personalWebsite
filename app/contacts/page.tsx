@@ -70,7 +70,7 @@ const mySocials : {id:number, name:string, imgUri:string, alt:string, url:string
 const Contacts = () => {
   return (
     <main className="flex flex-col items-center justify-between md:px-24 px-8 pt-24">
-        <h1>This is where you'll find the way to reach me. 📧 Feel free ! </h1>
+        <h1>This is where you`&apos;ll find the way to reach me. 📧 Feel free ! </h1>
         <ul className='flex flex-col gap-5 mt-5 w-full max-w-md mb-16'>
             {mySocials?.map( (social) => {
                 return (
