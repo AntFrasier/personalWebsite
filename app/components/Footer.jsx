@@ -9,7 +9,7 @@ const Footer = () => {
 
   return (
     <footer className='flex fixed bottom-0 w-full bg-secondary shadow-lg'>
-        <a className='p-2' href={"https://github.com/AntFrasier/personalWebsite"} target={"_blanck"} alt={"Cyril Maranber Github profile link"}>
+        <a className='p-2' href={"https://github.com/AntFrasier/personalWebsite"} target={"_blanck"} alt={"Cyril Maranber Github profile link"} rel='nofollow noreferrer noopener'>
             <Image
              className='justify-self-start'
                 src={"/img/github-mark.svg"}

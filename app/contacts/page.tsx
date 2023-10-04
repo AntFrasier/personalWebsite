@@ -75,7 +75,7 @@ const Contacts = () => {
             {mySocials?.map( (social) => {
                 return (
                     <li key={social.id}>
-                        <a href={social.url} target='_blank'>
+                        <a href={social.url} target='_blank' rel="nofollow noreferrer noopener">
                             <div className='flex flex-row items-center border-2 bg-secondary rounded-2xl origin-center ease-in-out duration-300 border-primary-content hover:border-info gap-3 px-5 py-2 w-full'>
                                 <Image 
                                     src={`/img/socials/${social.imgUri}`}
@@ -92,24 +92,6 @@ const Contacts = () => {
                     </li>
                 )
             })}
-            {/* <li>  
-                
-            </li>
-            <li>
-            <a href={""} target='_blank'>
-                <div className='flex min-w-200px border-2 bg-secondary rounded-2xl border-primary-content gap-3 px-5 py-2'>
-                 
-                    <Image 
-                        src={"/img/linkedInDarkBlue.svg"}
-                        alt={"twitter X logo"}
-                        width={50}
-                        height={50}
-                        />
-
-                    <span> LinkedIn </span>
-                </div>
-                </a>
-            </li> */}
         </ul>
     </main>
   )
