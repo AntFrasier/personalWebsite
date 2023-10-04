@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const Portfolio = () => {
   return (
-    <main className="flex flex-col items-center justify-between md:px-24 px-8 pt-24">
+    <main className="flex flex-col items-center justify-between md:px-24 px-8 xl:pt-24 pt-12">
         <h1>Portfolio </h1>
        
     </main>
