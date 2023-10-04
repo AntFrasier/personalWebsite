@@ -16,7 +16,7 @@ export default function Home() {
       <div className="flex flex-col ">
         <div className='flex flex-row-reverse flex-wrap justify-end'>
           <Image 
-              className='sm:ml-12 xl:max-w-[45%] max-w[55%]'
+              className='sm:ml-12 xl:max-w-[45%] max-w[55%] mb-12'
               src={"/img/CyrilMaranber.svg"}
               alt="Cyril Maranber Developer Web"
               width={400}
