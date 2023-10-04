@@ -11,26 +11,31 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="flex flex-row justify-center flex-wrap lg:p-24 lg:mt-24 p-12 mt-12">
-      <Image 
-        className='mb-16'
-        src={"/img/CyrilMaranber.svg"}
-        alt="Cyril Maranber Developer Web"
-        width={500}
-        height={500}
-        />
-      <div className="pl-130px ml-16 flex flex-col">
-      <div className={irish.className}>
-        <h1 className={"xl:text-9xl text-7xl"}><p>Cyril</p><p> Maranber</p></h1>
-        <h2 className={"xl:text-3xl text-2xl mt-8"}>Web3 Developer</h2>
-      </div>
-      <p className={"mt-8 max-w-screen-lg"}>
+    <main className="flex flex-row-reverse justify-end flex-wrap lg:p-24 xl:ml-36 md:ml-24 lg:mt-24 p-12 mt-12">
+    
+      <div className="flex flex-col ">
+        <div className='flex flex-row-reverse flex-wrap justify-end'>
+          <Image 
+              className='sm:ml-12 xl:max-w-[45%] max-w[55%]'
+              src={"/img/CyrilMaranber.svg"}
+              alt="Cyril Maranber Developer Web"
+              width={400}
+              height={400}
+              />
+          <div className={irish.className + " mt-auto mb-auto"}>
+            <h1 className={"2xl:text-9xl xl:text-7xl md:text-6xl text-5xl"}><p>Cyril</p><p> Maranber</p></h1>
+            <h2 className={"2xl:text-3xl xl:text-2xl md:mt-5 mt-2"}>Web3 Developer</h2>
+          </div>
+
+        </div>
+      <p className={"mt-8 xl:max-w-screen-lg max-w-screen-md"}>
         Welcome to my personal website ! I&#39;m a french web developer pationate with blockchain technologies and web development. Here are some of my expérience and skills ! 
       </p>
       <Link href={"/contacts"} className='m-auto'>
-        <button type="button" className="btn-secondary hover-underline mt-36 ">Contact</button>
+        <button type="button" className="btn-secondary hover-underline xl:mt-36 mt-12">Contact</button>
       </Link>
       </div>
+    
     </main>
   )
 }
