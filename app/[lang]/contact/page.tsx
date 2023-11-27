@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata } from "next"
 import Image from "next/image"
 import { getDictionary } from '@/lib/dictionary'
+import { Locale } from "@/i18n-config"
 
 export const metadata: Metadata = {
   title: "Contacts | Cyril Maranber ",
@@ -70,7 +71,7 @@ const mySocials : {id:number, name:string, imgUri:string, alt:string, url:string
 
 const Contacts = async ( { params: { lang },
 }: {
-  params: { lang: string }
+  params: { lang: Locale }
 }) => {
     const dictionary = await getDictionary(lang)
   return (

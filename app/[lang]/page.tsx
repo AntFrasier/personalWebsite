@@ -3,11 +3,12 @@ import type { Metadata } from 'next'
 import { Irish_Grover } from 'next/font/google'
 import Link from 'next/link'
 import { getDictionary } from '@/lib/dictionary'
+import type { Locale } from '@/i18n-config'
 
 const irish = Irish_Grover({weight:"400", subsets:['latin']})
 
 
-export async function generateMetadata( lang ) {
+export async function generateMetadata( lang:Locale ) {
   // read route params
 const dictionary = await getDictionary(lang)
 return {
@@ -20,7 +21,7 @@ return {
 export default async function Home({
   params: { lang },
 }: {
-  params: { lang: string }
+  params: { lang: Locale }
 }) {
 
   const dictionary = await getDictionary(lang)

@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import Providers from './providers'
 import Footer from "./components/Footer"
 import Header from './components/Header'
-import { i18n } from '@/i18n-config'
+import { Locale, i18n } from '@/i18n-config'
  
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,7 +21,7 @@ export default function RootLayout({
   params,
 }: {
   children: React.ReactNode
-  params: {lang:string}
+  params: {lang:Locale}
 }) {
   return (
     <html lang={params.lang}>
