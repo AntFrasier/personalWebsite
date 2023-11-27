@@ -9,8 +9,7 @@ export const metadata: Metadata = {
 const About = () => {
   return (
     <main className="flex flex-col items-center justify-between md:px-24 px-8 xl:pt-24 pt-12">
-      <h1>About </h1>
-       
+      <h1>About</h1> 
     </main>
   )
 }

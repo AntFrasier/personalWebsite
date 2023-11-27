@@ -83,10 +83,10 @@ const Contacts = () => {
                                     width={50}
                                     height={50}
                                     />
-                                    <div className="flex flex-col">
-                                        <span className="text-md"> {social.name} </span>
-                                        <span className="text-sm"> {social.description} </span>
-                                    </div>
+                                <div className="flex flex-col">
+                                    <span className="text-md"> {social.name} </span>
+                                    <span className="text-sm"> {social.description} </span>
+                                </div>
                             </div>
                         </a>
                     </li>
