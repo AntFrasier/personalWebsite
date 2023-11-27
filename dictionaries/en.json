@@ -1,0 +1,21 @@
+{  
+    "lang": "en",
+    "home": {
+        "name": "Home",
+        "title" : "Cyril Maranber | Web Developer",
+        "description" : "Welcome to my personal website. you'll find here all the information regarding, what i've done",
+        "h2" : "Web3 Developer",
+        "hook" : "Welcome to my personal website ! I'm a french web developer pationate with blockchain technologies and web development. Here are some of my expérience and skills !"
+
+    },
+
+    "about" :{
+        "name" : "About",
+        "h1" : "About"
+    },
+
+    "contact" :{
+        "name" : "Contact",
+        "h1" : "This is where you'll find the way to reach me. 📧 Feel free !"
+    }
+}

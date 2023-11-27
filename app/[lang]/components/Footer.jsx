@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/image';
 import React from 'react'
 
-const Footer = () => {
+const Footer = (lang) => {
 
     const date = new Date();
     const year = date.getFullYear();

@@ -1,0 +1,21 @@
+{
+    "lang": "fr",
+    "home": {
+        "name" : "Accueil",
+        "title" : "Cyril Maranber | Developpeur Web",
+        "description" : "Bienvenue sur mon site web perso. Vous trouverez ici toutes les informations sur mon parcours de developpeur fullstack orienté block chain et crypto monaies.",
+        "h2" : "Developpeur Web3",
+        "hook" : "Bienvenue sur mon site web ! Je suis developpeur web fullstack freelance. Je suis passionné par la technologie blockchain, les crypto-monnaies et le developpement web. Découvrez mes expériences et mon parcours."
+
+    },
+
+    "about" :{
+        "name" : "À propos",
+        "h1" : "À propos"
+    },
+
+    "contact" :{
+        "name" : "Contact",
+        "h1" : "Vous trouverez ici tous les moyens de me contacter 📧. N'hésitez pas, j'étudie toute les propositions !"
+    }
+}

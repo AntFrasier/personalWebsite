@@ -1,14 +1,21 @@
 import Image from "next/image"
 import Link from "next/link"
 import ThemeSwitch from "./ThemeSwitch"
+import LocaleSwitcher from './locale-switcher'
 import Menu from "./Menu"
 import MenuModal from "./MenuModal"
+import { getDictionary } from "@/lib/dictionary"
 
-const Header = () => {
+const Header = async ({
+  lang } : 
+  {lang : string
+  }) => {
+    const dictionary = await getDictionary(lang);
+
   return (
     <>
     <header id="header" className="flex flex-row items-end align-center gap-10 p-5 w-full bg-secondary shadow-lg">
-      <Link href={"/"} className="">
+      <Link href={`/${lang}`} className="">
         <div id="logo">
             <Image 
               // src={"cyrilMaranberlogo.svg"}
@@ -21,7 +28,7 @@ const Header = () => {
       </Link>
       <nav className="md:block hidden">
         <ul className="flex gap-5">
-         <Menu />
+         <Menu dictionary={dictionary}/>
         </ul>
       </nav>
       <div className="flex flex-row ml-auto gap-3">
@@ -29,7 +36,8 @@ const Header = () => {
           <MenuModal />
         </nav>
         <div>
-          <button type="button" className="language">FR</button>
+          <LocaleSwitcher lang={lang}/>
+
         </div>
         <div className="flex">
           <ThemeSwitch />
