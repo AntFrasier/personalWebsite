@@ -8,4 +8,3 @@ const dictionaries = {
  
 export const getDictionary = async (locale:Locale) => dictionaries[locale]?.() ?? dictionaries.fr()
 
-export type Dictionary = typeof dictionaries.en
