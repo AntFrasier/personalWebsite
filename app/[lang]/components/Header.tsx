@@ -5,10 +5,11 @@ import LocaleSwitcher from './locale-switcher'
 import Menu from "./Menu"
 import MenuModal from "./MenuModal"
 import { getDictionary } from "@/lib/dictionary"
+import { Locale } from "@/i18n-config"
 
 const Header = async ({
   lang } : 
-  {lang : string
+  {lang : Locale
   }) => {
     const dictionary = await getDictionary(lang);
 

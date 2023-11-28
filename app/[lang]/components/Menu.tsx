@@ -1,11 +1,10 @@
 import React from 'react';
 import Link from "next/link";
-import { getDictionary } from '@/lib/dictionary';
-import type { Dictionary } from '@/lib/dictionary'
+import { getDictionary, Dictionary } from '@/lib/dictionary';
 import { Locale } from '@/i18n-config';
 
-const Menu = async ({lang} : {lang : Locale}) => {
-  const dictionary = await getDictionary(lang)
+const Menu = async ({dictionary} : {dictionary : Dictionary}) => {
+  
   return (
     <>
       <li className='hover-underline'>
