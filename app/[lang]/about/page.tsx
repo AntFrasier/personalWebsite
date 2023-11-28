@@ -1,13 +1,14 @@
 import React from 'react'
 import type { Metadata } from 'next'
 import { getDictionary } from '@/lib/dictionary'
+import { Locale } from '@/i18n-config'
 
 export const metadata: Metadata = {
   title: "About | Cyril Maranber ",
   description: "Here is a description about me, who i am and what i did.",
 }
 
-const About = async ({params : { lang } }: {params :{lang:string}}) => {
+const About = async ({params : { lang } }: {params :{lang:Locale}}) => {
 
   const dictionary = await getDictionary(lang)
   
