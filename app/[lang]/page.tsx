@@ -8,7 +8,11 @@ import type { Locale } from '@/i18n-config'
 const irish = Irish_Grover({weight:"400", subsets:['latin']})
 
 
-export async function generateMetadata( lang:Locale ) {
+export async function generateMetadata({
+  params: { lang },
+}: {
+  params: { lang: Locale }
+}) {
   // read route params
 const dictionary = await getDictionary(lang)
 return {
