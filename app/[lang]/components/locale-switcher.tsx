@@ -22,7 +22,7 @@ export default function LocaleSwitcher({ lang } :  {lang : string} ) {
             return;
         }
         else return (
-            <Link type="button" href={redirectedPathName(locale)} className="language uppercase ">{locale}</Link>
+            <Link key={locale} type="button" href={redirectedPathName(locale)} className="language uppercase ">{locale}</Link>
         //   <li key={locale}>
         //     <Link
         //       href={redirectedPathName(locale)}
