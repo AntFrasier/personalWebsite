@@ -24,19 +24,20 @@ function getLocale(request: NextRequest): string | undefined {
   return locale
 }
 
-export function middleware(request: NextRequest) {
+export default function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
   // // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
   // // If you have one
-  // if (
-  //   [
-  //     '/manifest.json',
-  //     '/favicon.ico',
-  //     // Your other files in `public`
-  //   ].includes(pathname)
-  // )
-  //   return
+  if (
+    [
+      '/manifest.json',
+      '/favicon.ico',
+      // Your other files in `public`
+    ].includes(pathname) ||
+    pathname.search("/img/") != -1 //avoid redirecting the images
+  )
+    return
 
   // Check if there is any supported locale in the pathname
   const pathnameIsMissingLocale = i18n.locales.every(
