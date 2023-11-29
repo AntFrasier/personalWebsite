@@ -5,6 +5,7 @@ import Footer from "./components/Footer"
 import Header from './components/Header'
 import { Locale, i18n } from '@/i18n-config'
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/react'
  
 
 const inter = Inter({ subsets: ['latin'] })
@@ -26,8 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang={params.lang}>
-      {/* header */}
-      
+    {/* Google analytics script Has to be tested */}
     <Script src="https://www.googletagmanager.com/gtag/js?id=G-M4QVX2EWTN"/>
     <Script id="GA">
       {
@@ -44,6 +44,7 @@ export default function RootLayout({
             <Footer lang={params.lang} />
           </Providers>
         </div>
+        <Analytics />
       </body>
 
     </html>
