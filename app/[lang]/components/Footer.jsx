@@ -8,7 +8,7 @@ const Footer = (lang) => {
     const year = date.getFullYear();
 
   return (
-    <footer className='flex fixed bottom-0 w-full bg-secondary shadow-lg'>
+    <footer className='flex fixed bottom-0 w-full bg-secondary shadow-lg mt-10'>
         <a className='p-2' href={"https://github.com/AntFrasier/personalWebsite"} target={"_blanck"} alt={"Cyril Maranber Github profile link"} rel='nofollow noreferrer noopener'>
             <Image
              className='justify-self-start'

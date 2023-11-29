@@ -11,7 +11,17 @@
 
     "about" :{
         "name" : "About",
-        "h1" : "About"
+        "h1" : "Mon parcours de Développeur Full Stack spécialiste Blockchain",
+        "intro" : "Je suis Cyril Maranber. Je me suis lancé dans le développement informatique après avoir passé 12 ans à la tête d'une entreprise d'électricité et de domotique. Si vous vous demandez comment je suis passé de l'électricité à la blockchain, découvrez mon parcours.",
+        "h21" : "La programmation, un jeu d'enfant",
+        "p1" : "À l'âge de 10 ans, je créais mes premiers scripts en GW Basic. Plus tard, j'ai exploré le langage C pendant mes études. J'ai réalisé quelques sites vitrines pour mon entreprise et un site e-commerce pour le fun ! Puis la révélation (révolution ?) Blockchain s'est produite en 2019 avec la découverte des crypto-monnaies. C'est ainsi que j'ai retrouvé mes premières amours pour le développement informatique !",
+        "h22" : "La blockchain, source d'une nouvelle aspiration",
+        "p2" : "Un peu comme tout le monde (ou pas) dans ce milieu, j'ai découvert la Blockchain avec la spéculation sur les cryptos. J'ai créé des scripts sous Node.js pour des bots de trading d'une profitabilité (en shit coin) irréprochables ! J'ai voulu en apprendre plus sur Solidity, le fonctionnement intrinsèque de la Blockchain, les valeurs liées à la décentralisation, les DAO, la redistribution de valeurs. J'ai suivi pas mal de mooc, réalisé la plupart des tutos trouvés sur le net. J'aime passer du temps à résoudre des problèmes (genre codingame) et donner vie à une idée de site ou de service via la programmation . Écrire du code qui devient une app ou un site a quelque chose de magique. La programmation est un peu comme une langue étrangère parlée par les développeurs dont les navigateurs web seraient les traducteurs.",
+        "h23" : "Un développeur Full Stack polyvalent, curieux et autonome",
+        "p3" : "Je suis un esprit curieux, résolument tourné vers la découverte de nouvelles connaissances. Je ne me repose pas sur mes acquis, j'aime apprendre et mettre en pratique mes compétences. Je sais travailler en équipe, manager ou être diriger. Je suis persévérant, les défis ne me font pas peur. Globalement j'aime sortir de ma zone de confort. C'est cette curiosité et cette soif d'apprendre qui m'ont amené à ce changement professionnel. Je vis cette nouvelle aventure avec enthousiasme et excitation. Je suis un développeur full stack ayant de solides compétences dans le dev blockChain. Cela me permet d'intervenir aussi bien en frontend qu'en backend. J'utilise git et github régulièrement pour du travail en solo ou en équipe. Je suis à l'aise avec React, NextJs, Node et ai de bonnes connaissances en Solidity. Je suis autonome, sais suivre les directives pour rendre un travail de qualité dans le respect des délais.",
+        "h24" : "Un entrepreneur en quête de changement",
+        "p4" : "J'ai décidé de me lancer en freelance pour être libre du choix de l'endroit où je travaille. A la tête d'une société pendant de nombreuses années, j'aime l'entreprenariat et ses défis. Mais la routine et la sédentarité ne me conviennent pas. J'aime voyager, découvrir le monde et les gens, les langues étrangères... En tant que freelance je peux intégrer une équipe de développement, sous la coupe d'un lead dev pour des projets de différentes tailles incluant un besoin web3.Mon crédo, c'est le travail bien fait, dans les temps, et en collaboration étroite avec mes clients.",
+        "conclusion" : "Vous cherchez un développeur full stack spécialiste blockchain autonome, rigoureux et polyvalent, je vous invite à parcourir mon portfolio pour découvrir mes réalisations. N'hésitez pas à me contacter pour en discuter."
     },
 
     "contact" :{
