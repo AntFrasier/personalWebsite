@@ -34,10 +34,10 @@ const Header = async ({
       </nav>
       <div className="flex flex-row ml-auto gap-3">
         <nav id="burger" className="md:hidden">
-          <MenuModal />
+          <MenuModal dictionary={dictionary}/>
         </nav>
         <div>
-          <LocaleSwitcher lang={lang}/>
+          <LocaleSwitcher lang={dictionary.lang}/>
 
         </div>
         <div className="flex">

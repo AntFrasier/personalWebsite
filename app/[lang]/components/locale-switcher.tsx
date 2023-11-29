@@ -19,7 +19,7 @@ export default function LocaleSwitcher({ lang } :  {lang : string} ) {
     <ul className='flex gap-x-3'>
       {i18n.locales.map(locale => {
         if (lang == locale) {
-            return;
+            return; //avoid displaying the other language @todo if there is an other language this as to be refactor
         }
         else return (
             <Link key={locale} type="button" href={redirectedPathName(locale)} className="language uppercase ">{locale}</Link>
