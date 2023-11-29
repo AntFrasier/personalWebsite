@@ -4,6 +4,7 @@ import Providers from './providers'
 import Footer from "./components/Footer"
 import Header from './components/Header'
 import { Locale, i18n } from '@/i18n-config'
+import Script from 'next/script'
  
 
 const inter = Inter({ subsets: ['latin'] })
@@ -14,7 +15,7 @@ export async function generateStaticParams() { //internationalization param
 }
 
 // const { isDarkMode, toggle } =useDarkMode();
-const lg:string = "en"
+
 // const theme = "light"
 export default function RootLayout({
   children,
@@ -26,7 +27,15 @@ export default function RootLayout({
   return (
     <html lang={params.lang}>
       {/* header */}
-
+      
+    <Script src="https://www.googletagmanager.com/gtag/js?id=G-M4QVX2EWTN"/>
+    <Script id="GA">
+      {
+        `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M4QVX2EWTN');`}
+      </Script>
       <body className={inter.className + " bg-primary flex flex-col min-h-screen "}>
         <div id="background">
           <Providers>
