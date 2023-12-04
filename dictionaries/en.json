@@ -2,15 +2,17 @@
     "lang": "en",
     "home": {
         "name": "Home",
-        "title" : "Cyril Maranber | Web Developer",
-        "description" : "Welcome to my personal website. you'll find here all the information regarding, what i've done",
+        "metaTitle" : "Cyril Maranber | Web Developer",
+        "metaDescription" : "Welcome to my personal website. you'll find here all the information regarding, what i've done",
         "h2" : "Web3 Developer",
-        "hook" : "Welcome to my personal website ! I'm a french web developer pationate with blockchain technologies and web development. Here are some of my expérience and skills !"
+        "hook" : "Welcome to my personal website ! I'm a french web developer passionate in blockchain technologies and web development. Here are some of my experiences and skills !"
 
     },
 
     "about" :{
         "name" : "About",
+        "metaTitle" : "Cyril Maranber | About",
+        "metaDescription" : "All you need to know about me is here. My journey to become a fullstack web3 developer.",
         "h1" : "My journey to fullstack web3 developer",
         "intro" : "My name is Cyril Maranber. I got into web development after 12 years at the head of an electricity and smart homes companie. If you're asking yourself how i moved from electricity to blockchain, let's discover my journey.",
         "h21" : "Computer programming as a child game",
@@ -26,6 +28,15 @@
 
     "contact" :{
         "name" : "Contact",
+        "metaTitle" : "Cyril Maranber | Developpeur Web",
+        "metaDescription" : "Bienvenue sur mon site web perso. Vous trouverez ici toutes les informations sur mon parcours de developpeur fullstack orienté block chain et crypto monaies.",
         "h1" : "This is where you'll find the way to reach me. 📧 Feel free !"
+    },
+
+    "portfolio" :{
+        "name" : "Portfolio",
+        "metaTitle" : "Cyril Maranber | My portfolio",
+        "metaDescription" : "My prtfolio as a fullstack web3 developer.Discover my blockcahin and web dev projects.",
+        "h1" : "My full stackWeb3 developer portfolio"
     }
 }
