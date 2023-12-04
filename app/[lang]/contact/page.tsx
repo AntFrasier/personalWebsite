@@ -4,10 +4,19 @@ import Image from "next/image"
 import { getDictionary } from '@/lib/dictionary'
 import { Locale } from "@/i18n-config"
 
-export const metadata: Metadata = {
-  title: "Contacts | Cyril Maranber ",
-  description: "Here are all my contacts, please feel free to contat me for any web2 or web3 project. I studie all the proposition, open source or not. C U !",
-}
+export async function generateMetadata({
+    params: { lang },
+  }: {
+    params: { lang: Locale }
+  }) {
+    // read route params
+  const dictionary = await getDictionary(lang)
+  return {
+    title: dictionary.contact.metaTitle,//"Cyril Maranber | Web Developer",
+    description: dictionary.contact.metaDescription, //"Welcome to my personal website. you'll find here all the information regarding, what i've done",
+  
+  }
+  }
 
 const mySocials : {id:number, name:string, imgUri:string, alt:string, url:string, description:string}[]= [
     { 

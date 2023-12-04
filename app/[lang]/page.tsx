@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import type { Metadata } from 'next'
 import { Irish_Grover } from 'next/font/google'
 import Link from 'next/link'
 import { getDictionary } from '@/lib/dictionary'
@@ -16,8 +15,8 @@ export async function generateMetadata({
   // read route params
 const dictionary = await getDictionary(lang)
 return {
-  title: dictionary.home.title,//"Cyril Maranber | Web Developer",
-  description: dictionary.home.description, //"Welcome to my personal website. you'll find here all the information regarding, what i've done",
+  title: dictionary.home.metaTitle,//"Cyril Maranber | Web Developer",
+  description: dictionary.home.metaDescription, //"Welcome to my personal website. you'll find here all the information regarding, what i've done",
 
 }
 }
@@ -52,9 +51,14 @@ export default async function Home({
       <p className={"mt-8 xl:max-w-screen-lg max-w-screen-md"}>
       {dictionary.home.hook} 
       </p>
-      <Link href={"/contacts"} className='m-auto'>
-        <button type="button" className="btn-secondary hover-underline xl:mt-36 mt-12">Contact</button>
-      </Link>
+      <div className='flex items-center justify-center gap-5'>
+        <Link href={`/${lang}/contact`} >
+          <button type="button" className="btn-secondary hover-underline xl:mt-36 mt-12">Contact</button>
+        </Link>
+        <Link href={`/${lang}/portfolio`} >
+          <button type="button" className="btn-secondary hover-underline xl:mt-36 mt-12">Portfolio</button>
+        </Link>
+      </div>
       </div>
     
     </main>
