@@ -64,20 +64,44 @@ const myProjects : {
       name:"TypeScript",
       logoUrl:"typescript.svg",
     },
+    {
+      name:"Solidity",
+      logoUrl:"solidity.svg",
+    },
   ]
   },
   {
   id:2,
-  name:"alchemy uni Project",
-  imgUrl:"/img/thumbnail/",
+  name:"Alchemy University final Project | LoyalEth",
+  imgUrl:"loyaltEth-thumbnail.jpg",
   alt:"image alt",
-  url:"/alchemy.test",
-  description:"This the description",
-  githubUrl:"/github",
+  url:"/#",
+  description:"WIP - This project is a app that can create a set of smart contract to automaticly create a paiment and an referal nft contract. It allows merchent that acept crypto payment to add loyalty and to reward their customer for this loyalty ! ",
+  githubUrl:"https://github.com/AntFrasier/FinalProjectAU",
   stack:[
     {
-      name:"nodeJs",
-      logoUrl:"Brand=nodejs, Style=Dark.svg",
+      name:"NodeJs",
+      logoUrl:"nodeJS.svg",
+    },
+    {
+      name:"ReactJs",
+      logoUrl:"reactJS.svg",
+    },
+    {
+      name:"ViteJs",
+      logoUrl:"ViteJs.svg",
+    },
+    {
+      name:"Javascript",
+      logoUrl:"javascript.svg",
+    },
+    {
+      name:"mongoDB",
+      logoUrl:"mongodb.svg",
+    },
+    {
+      name:"Solidity",
+      logoUrl:"solidity.svg",
     },
   ]
   },
@@ -124,7 +148,7 @@ const dictionary = await getDictionary(lang)
                                     className="rounded-xl border-2 m-5"
                                     />
                                 <div className="flex flex-col m-5">
-                                    <h3 className="text-md"> {project.name} </h3>
+                                    <h2 className="text-md"> {project.name} </h2>
                                     <span className="text-sm"> {project.description} </span>
                                     <h3>Stack :</h3>
                                     <ul className="flex gap-3">
