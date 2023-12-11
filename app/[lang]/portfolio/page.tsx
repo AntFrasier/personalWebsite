@@ -4,24 +4,82 @@ import { Locale } from "@/i18n-config"
 import { getDictionary } from "@/lib/dictionary"
 import Link from "next/link"
 
-const myProjects : {id:number, name:string, imgUrl:string, alt:string, url:string, description:string, githubUrl:string}[]= [ 
+const myProjects : {
+  id:number, 
+  name:string, 
+  imgUrl:string, 
+  alt:string, 
+  url:string, 
+  description:string, 
+  githubUrl:string, 
+  stack:{
+    name:string, 
+    logoUrl:string}[]
+  }[]= [ 
   {
   id:0,
   name:"This WebSite",
   imgUrl:"cyril-maranber-thumbnail.jpg",
   alt:"Cyril Maranber fullStack dev",
-  url:"/cyril-maranber.com",
-  description:"This the description",
-  githubUrl:"/github"
+  url:"https://cyril-maranber.com",
+  description:"This project has been made to get out of localhost ... Showing some skills that i have. It's a way for me to still learn and improve my self !",
+  githubUrl:"https://github.com/AntFrasier/personalWebsite/tree/master",
+  stack:[
+    {
+      name:"NextJS",
+      logoUrl:"nextJS.svg",
+    },
+    {
+      name:"Css",
+      logoUrl:"css.svg",
+    },
+    {
+      name:"Html",
+      logoUrl:"html5.svg",
+    },
+    {
+      name:"Tailwind",
+      logoUrl:"tailwind.svg",
+    },
+  ]
   },
   {
   id:1,
+  name:"BuidlGuidl profile",
+  imgUrl:"buidlGuidl-thumbnail.jpg",
+  alt:"Buidl Guidl cyril maranber profile thumbnail",
+  url:"https://app.buidlguidl.com/builders/0xB810b728E44df56eAf4Da93DDd08168B3660753f",
+  description:"My buidlGuidl profile where some of web3 challenge or project are listed ! For some of theme i uses scaffoldEth 1 and some uses scaffoldEth 2",
+  githubUrl:"https://github.com/AntFrasier",
+  stack:[
+    {
+      name:"ScaffoldEth",
+      logoUrl:"scaffoldEth.svg",
+    },
+    {
+      name:"NextJS",
+      logoUrl:"nextJS.svg",
+    },
+    {
+      name:"TypeScript",
+      logoUrl:"typescript.svg",
+    },
+  ]
+  },
+  {
+  id:2,
   name:"alchemy uni Project",
   imgUrl:"/img/thumbnail/",
   alt:"image alt",
   url:"/alchemy.test",
   description:"This the description",
-  githubUrl:"/github"
+  githubUrl:"/github",
+  stack:[
+    {
+      name:"nodeJs",
+      logoUrl:"Brand=nodejs, Style=Dark.svg",
+    },
+  ]
   },
 ]
 
@@ -55,8 +113,9 @@ const dictionary = await getDictionary(lang)
             {myProjects?.map( (project) => {
                 return (
                     <li key={project.id}>
-                        <a href={project.url} target='_blank' rel="nofollow noreferrer noopener">
-                            <div className='flex flex-row items-start border-b-2 hover:bg-secondary origin-center ease-in-out duration-300 border-primary-content hover:border-info gap-3 px-5 py-2 w-full'>
+                        {/* <a href={project.url} target='_blank' rel="nofollow noreferrer noopener"> */}
+                            <div className="flex flex-col border-b-2 origin-center ease-in-out duration-300 border-primary-content hover:border-info">
+                            <div className='flex flex-row items-start lg:flex-nowrap flex-wrap gap-3 px-5 py-2 w-full'>
                                 <Image 
                                     src={`/img/thumbnail/${project.imgUrl}`}
                                     alt={project.alt}
@@ -67,20 +126,33 @@ const dictionary = await getDictionary(lang)
                                 <div className="flex flex-col m-5">
                                     <h3 className="text-md"> {project.name} </h3>
                                     <span className="text-sm"> {project.description} </span>
-                                    <span className="text-sm"> {project.githubUrl} </span>
-                                    <span className="text-sm"> {project.url} </span>
                                     <h3>Stack :</h3>
-                                    <div className='flex items-center justify-center gap-5'>
-                                      <Link href={`/${lang}/#`} >
-                                        <button type="button" className="btn-primary portfolio hover-underline xl:mt-36 mt-12">Demo</button>
-                                      </Link>
-                                      <Link href={`/${lang}/#`} >
-                                        <button type="button" className="btn-primary portfolio hover-underline xl:mt-36 mt-12">Code</button>
-                                      </Link>
-                                    </div>
+                                    <ul className="flex gap-3">
+                                      {project.stack?.map((stack) => {
+                                        return (
+                                          <li key={stack.name} className="rounded-2xl bg-[#000000]">
+                                            <Image 
+                                              src={`/img/stacks-logos/${stack.logoUrl}`}
+                                              alt={stack.name}
+                                              width={50}
+                                              height={50}
+                                              className=""
+                                    />
+                                          </li>
+                                        )
+                                      })}
+                                    </ul>
                                 </div>
+                              </div>
+                              <div className='flex justify-center gap-10 mb-5'>
+                                      <Link href={project.url} target="_blank" rel="noopener nofollow noreferrer">
+                                        <button type="button" className="btn-primary portfolio hover-underline ">Demo</button>
+                                      </Link>
+                                      <Link href={project.githubUrl} target="_blank" rel="noopener nofollow noreferer">
+                                        <button type="button" className="btn-primary portfolio hover-underline ">Code</button>
+                                      </Link>
+                              </div>
                             </div>
-                        </a>
                     </li>
                 )
             })}

@@ -12,6 +12,7 @@ const config: Config = {
       {
         light: {
           primary: "#ffffff",
+          "non-primary": "#12213E",
           "primary-content": "#212638",
           secondary: "#3CA8E6",
           "secondary-content": "#212638",
@@ -42,6 +43,7 @@ const config: Config = {
       {
         dark: {
           primary: "#12213E",
+          "non-primary": "#ffffff",
           backgroundEndRgb:"#000000",
           "primary-content": "#F9FBFF",
           secondary: "#1465BA",
