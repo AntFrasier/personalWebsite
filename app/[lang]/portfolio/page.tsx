@@ -72,10 +72,10 @@ const myProjects : {
   },
   {
   id:2,
-  name:"Alchemy University final Project | LoyalEth",
+  name:"Alchemy University final Project | LoyaltEth",
   imgUrl:"loyaltEth-thumbnail.jpg",
   alt:"image alt",
-  url:"/#",
+  url:"none",
   description:"WIP - This project is a app that can create a set of smart contract to automaticly create a paiment and an referal nft contract. It allows merchent that acept crypto payment to add loyalty and to reward their customer for this loyalty ! ",
   githubUrl:"https://github.com/AntFrasier/FinalProjectAU",
   stack:[
@@ -89,7 +89,7 @@ const myProjects : {
     },
     {
       name:"ViteJs",
-      logoUrl:"ViteJs.svg",
+      logoUrl:"viteJs.svg",
     },
     {
       name:"Javascript",
@@ -145,13 +145,13 @@ const dictionary = await getDictionary(lang)
                                     alt={project.alt}
                                     width={350}
                                     height={250}
-                                    className="rounded-xl border-2 m-5"
+                                    className="rounded-xl border-2 mt-5 aspect-video"
                                     />
                                 <div className="flex flex-col m-5">
                                     <h2 className="text-md"> {project.name} </h2>
                                     <span className="text-sm"> {project.description} </span>
-                                    <h3>Stack :</h3>
-                                    <ul className="flex gap-3">
+                                    <p className="text-md pt-3 pb-3 font-bold">Stack :</p> {/*as an h3 styling*/}
+                                    <ul className="flex flex-wrap gap-3">
                                       {project.stack?.map((stack) => {
                                         return (
                                           <li key={stack.name} className="rounded-2xl bg-[#000000]">
@@ -160,7 +160,7 @@ const dictionary = await getDictionary(lang)
                                               alt={stack.name}
                                               width={50}
                                               height={50}
-                                              className=""
+                                              className="aspect-square"
                                     />
                                           </li>
                                         )
@@ -169,9 +169,12 @@ const dictionary = await getDictionary(lang)
                                 </div>
                               </div>
                               <div className='flex justify-center gap-10 mb-5'>
-                                      <Link href={project.url} target="_blank" rel="noopener nofollow noreferrer">
+                                      {project.url != "none" ? (
+                                        <Link href={project.url} aria-disabled={false} target="_blank" rel="noopener nofollow noreferrer">
                                         <button type="button" className="btn-primary portfolio hover-underline ">Demo</button>
                                       </Link>
+                                      ) : (
+                                        null)}
                                       <Link href={project.githubUrl} target="_blank" rel="noopener nofollow noreferer">
                                         <button type="button" className="btn-primary portfolio hover-underline ">Code</button>
                                       </Link>
