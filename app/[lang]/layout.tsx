@@ -6,6 +6,7 @@ import Header from './components/Header'
 import { Locale, i18n } from '@/i18n-config'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from "@vercel/speed-insights/next"
  
 
 const inter = Inter({ subsets: ['latin'] })
@@ -44,7 +45,9 @@ export default function RootLayout({
             <Footer lang={params.lang} />
           </Providers>
         </div>
+        {/* vercel analitics and speed insight */}
         <Analytics />
+        <SpeedInsights />
       </body>
 
     </html>
