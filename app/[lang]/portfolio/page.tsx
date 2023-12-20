@@ -89,7 +89,7 @@ const myProjects : {
     },
     {
       name:"ViteJs",
-      logoUrl:"viteJs.svg",
+      logoUrl:"viteJS.svg",
     },
     {
       name:"Javascript",
@@ -130,9 +130,8 @@ const Portfolio = async ({
   // read route params
 const dictionary = await getDictionary(lang) 
   return (
-    <main className="flex flex-col items-center justify-between md:px-24 px-8 xl:pt-24 pt-12">
-        <h1>{dictionary.portfolio.h1} </h1>
-        <p>Under Construction</p>
+    <main className="flex flex-col items-center justify-between max-w-4xl flex-col items-left justify-between lg:px-0 px-8 xl:pt-24 pt-12 ">
+        <h1 className="self-start">{dictionary.portfolio.h1}</h1>
         <ul className='flex flex-col gap-5 mt-5 w-full max-w-4xl mb-16'>
             {myProjects?.map( (project) => {
                 return (
@@ -161,6 +160,7 @@ const dictionary = await getDictionary(lang)
                                               width={50}
                                               height={50}
                                               className="aspect-square"
+                                              title={stack.name}
                                     />
                                           </li>
                                         )
@@ -170,7 +170,7 @@ const dictionary = await getDictionary(lang)
                               </div>
                               <div className='flex justify-center gap-10 mb-5'>
                                       {project.url != "none" ? (
-                                        <Link href={project.url} aria-disabled={false} target="_blank" rel="noopener nofollow noreferrer">
+                                        <Link href={project.url} target="_blank" rel="noopener nofollow noreferrer">
                                         <button type="button" className="btn-primary portfolio hover-underline ">Demo</button>
                                       </Link>
                                       ) : (
