@@ -28,15 +28,23 @@
 
     "contact" :{
         "name" : "Contact",
-        "metaTitle" : "Cyril Maranber | Developpeur Web",
-        "metaDescription" : "Bienvenue sur mon site web perso. Vous trouverez ici toutes les informations sur mon parcours de developpeur fullstack orienté block chain et crypto monaies.",
+        "metaTitle" : "Cyril Maranber | Blockchain and web Developer",
+        "metaDescription" : "Welcome to my personal website. You'll find here all the informations tjat you need to reach me ! Fell free to contact me for any web3 project !.",
         "h1" : "This is where you'll find the way to reach me. 📧 Feel free !"
     },
 
     "portfolio" :{
         "name" : "Portfolio",
         "metaTitle" : "Cyril Maranber | My portfolio",
-        "metaDescription" : "My prtfolio as a fullstack web3 developer.Discover my blockcahin and web dev projects.",
-        "h1" : "My full stack Web3 developer portfolio"
+        "metaDescription" : "My portfolio as a fullstack web3 developer.Discover some of my blockchain and web dev projects.",
+        "h1" : "My full stack Web3 | Blockchain developer portfolio"
+    },
+
+    "blog" :{
+        "name" : "Blog",
+        "metaTitle" : "Web Development, blockchain and web3 | Blog",
+        "metaDescription" : "Welcome to my blog, i''l try to explain and go deeper in the blockchain and smart contract devellopement.",
+        "h1" : "Blockchain, Smart contracts and web3 development blog",
+        "cat":"Categories"
     }
 }

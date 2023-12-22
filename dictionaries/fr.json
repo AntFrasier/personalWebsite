@@ -28,8 +28,8 @@
 
     "contact" :{
         "name" : "Contact",
-        "metaTitle" : "Cyril Maranber | Contactez un developpeur web3",
-        "metaDescription" : "Tous les moyens de me contacter.",
+        "metaTitle" : "Cyril Maranber | Contactez un developpeur web3 | Blockchain",
+        "metaDescription" : "Tous les moyens de me contacter. Vous avez un projet de developpement web3 implicant la blockcahin et des smart contract, n'hésitez pas à me contacter !",
         "h1" : "Vous trouverez ici tous les moyens de me contacter 📧. N'hésitez pas, j'étudie toutes les propositions !"
     },
 
@@ -38,5 +38,13 @@
         "metaTitle" : "Cyril Maranber | Mon portfolio",
         "metaDescription" : "Mon prtfolio de developpeur web fullstack orienté blockcahin et crypto-monnaies.",
         "h1" : "Mon portfolio de developpeur full stack | Blockchain"
+    },
+
+    "blog" :{
+        "name" : "Blog",
+        "metaTitle" : "Developpement web blockchain et web3 | Blog",
+        "metaDescription" : "Bienvenue sur mon blog, je vais essayer ici d'ecrire un maximum de concept et d'expliquer et de vulgariser le fonctionement de la blockchain et des smart contract.",
+        "h1" : "Blog sur la Blockchain les smart contracts et le developpement web",
+        "cat":"Catégories"
     }
 }

@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model categorie {
+  id   Int    @id(map: "categorie_pk") @default(autoincrement())
+  name String @db.VarChar(50)
+  post post[]
+}
+
+model page {
+  id       Int    @id(map: "page_pk") @default(autoincrement())
+  name     String @db.VarChar(50)
+  authorId Int
+  h1       String @db.VarChar(75)
+  user     user   @relation(fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "page_fk0")
+}
+
+model post {
+  id              Int        @id(map: "post_pk") @default(autoincrement())
+  authorId        Int
+  title           String?    @db.VarChar(75)
+  slug            String     @unique @db.VarChar(50)
+  mainCategorieId Int?
+  tagsId          Int?
+  user            user       @relation(fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "post_fk0")
+  categorie       categorie? @relation(fields: [mainCategorieId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "post_fk1")
+  tags            tags?      @relation(fields: [tagsId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "post_fk2")
+}
+
+model tags {
+  id   Int    @id(map: "tags_pk") @default(autoincrement())
+  name String @db.VarChar(75)
+  post post[]
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model test {
+  name  String? @db.VarChar(255)
+  owner String? @db.VarChar(255)
+
+  @@ignore
+}
+
+model user {
+  id         Int      @id(map: "user_pk") @default(autoincrement())
+  name       String   @db.VarChar(255)
+  email      String   @db.VarChar(255)
+  pasword    String   @unique @db.VarChar(255)
+  Registered DateTime @db.Date
+  page       page[]
+  post       post[]
+}
