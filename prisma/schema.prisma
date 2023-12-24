@@ -1,59 +1,79 @@
-generator client {
-  provider = "prisma-client-js"
-}
-
 datasource db {
-  provider  = "postgresql"
-  url       = env("POSTGRES_PRISMA_URL")
-  directUrl = env("POSTGRES_URL_NON_POOLING")
+  provider = "postgresql"
+  url      = env("LOCAL_DATABASE_URL") //todo replace in prod mode
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL") // Only needed when using a cloud provider that doesn't support the creation of new databases, like Heroku. Learn more: https://pris.ly/d/migrate-shadow
 }
 
-model categorie {
-  id   Int    @id(map: "categorie_pk") @default(autoincrement())
-  name String @db.VarChar(50)
-  post post[]
+generator client {
+  provider        = "prisma-client-js"
 }
 
-model page {
-  id       Int    @id(map: "page_pk") @default(autoincrement())
-  name     String @db.VarChar(50)
-  authorId Int
-  h1       String @db.VarChar(75)
-  user     user   @relation(fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "page_fk0")
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  @db.Text
+  access_token       String?  @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.Text
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
 }
 
-model post {
-  id              Int        @id(map: "post_pk") @default(autoincrement())
-  authorId        Int
-  title           String?    @db.VarChar(75)
-  slug            String     @unique @db.VarChar(50)
-  mainCategorieId Int?
-  tagsId          Int?
-  user            user       @relation(fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "post_fk0")
-  categorie       categorie? @relation(fields: [mainCategorieId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "post_fk1")
-  tags            tags?      @relation(fields: [tagsId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "post_fk2")
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-model tags {
-  id   Int    @id(map: "tags_pk") @default(autoincrement())
-  name String @db.VarChar(75)
-  post post[]
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  role          String? @default("user")
+  accounts      Account[]
+  sessions      Session[]
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model test {
-  name  String? @db.VarChar(255)
-  owner String? @db.VarChar(255)
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
 
-  @@ignore
+  @@unique([identifier, token])
 }
 
-model user {
-  id         Int      @id(map: "user_pk") @default(autoincrement())
-  name       String   @db.VarChar(255)
-  email      String   @db.VarChar(255)
-  pasword    String   @unique @db.VarChar(255)
-  Registered DateTime @db.Date
-  page       page[]
-  post       post[]
-}
+// model Categorie {
+//   id         String   @id @default(cuid())
+//   name       String   
+// }
+
+// model tag {
+//   id         String   @id @default(cuid())
+//   name       String   
+// }
+
+// model Post {
+//   id              String   @id @default(cuid())
+//   name            String   
+//   title_fr        String
+//   title_en        String
+//   description_fr  String
+//   description_en  String
+//   h1_fr           String
+//   h1_en           String
+//   intro_fr        String
+//   intro_en        String
+
+// }

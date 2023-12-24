@@ -1,65 +1,35 @@
 import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import type { NextFetchEvent, NextRequest } from 'next/server'
+import langMiddleware from './app/middelware/langMiddleware'
+import authMiddleware from './app/middelware/authMiddeleware'
+import { withAuth, NextRequestWithAuth } from "next-auth/middleware"
 
-import { i18n } from './i18n-config'
+let auth: boolean = true;
 
-import { match as matchLocale } from '@formatjs/intl-localematcher'
-import Negotiator from 'negotiator'
-
-function getLocale(request: NextRequest): string | undefined {
-  // Negotiator expects plain object so we need to transform headers
-  const negotiatorHeaders: Record<string, string> = {}
-  request.headers.forEach((value, key) => (negotiatorHeaders[key] = value))
-
-  // @ts-ignore locales are readonly
-  const locales: string[] = i18n.locales
-
-  // Use negotiator and intl-localematcher to get best locale
-  let languages = new Negotiator({ headers: negotiatorHeaders }).languages(
-    locales
-  )
-
-  const locale = matchLocale(languages, locales, i18n.defaultLocale)
-
-  return locale
-}
-
-export default function middleware(request: NextRequest) {
+export default withAuth ( function middleware(request: NextRequestWithAuth) {
   const pathname = request.nextUrl.pathname
-
-  // // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
-  // // If you have one
-  if (
-    [
-      '/manifest.json',
-      '/favicon.ico',
-      // Your other files in `public`
-    ].includes(pathname) ||
-    pathname.search("/img/") != -1 //avoid redirecting the images
-  )
-    return
-
-  // Check if there is any supported locale in the pathname
-  const pathnameIsMissingLocale = i18n.locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
-  )
-
-  // Redirect if there is no locale
-  if (pathnameIsMissingLocale) {
-    const locale = getLocale(request)
-
-    // e.g. incoming request is /products
-    // The new URL is now /en-US/products
-    return NextResponse.redirect(
-      new URL(
-        `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
-        request.url
-      )
-    )
+  if (pathname.search("/admin") === -1) {
+    auth = true
+    return langMiddleware(request)
+  } else if (request.nextauth.token) {
+      auth = request.nextauth.token?.role != "admin" ? false : true
+      return
+    } else {
+      // const url = request.nextUrl.clone()
+      // url.pathname = '/admin'
+      const url = new URL('/login', request.url)
+      console.log(url)
+      return NextResponse.redirect(url)
+    
+  }
+}, {
+  callbacks : {
+    authorized : ({token}) => auth
   }
 }
+)
 
-export const config = {
-  // Matcher ignoring `/_next/` and `/api/`
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
-}
+  export const config = {
+    // Matcher ignoring `/_next/` and `/api/`
+    matcher: ['/((?!api|_next/static|_next/image|favicon.ico|img).*)'],
+  }

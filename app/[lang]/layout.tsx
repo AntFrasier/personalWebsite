@@ -1,8 +1,8 @@
-import './globals.css'
+import '../globals.css'
 import { Inter } from 'next/font/google'
-import Providers from './providers'
-import Footer from "./components/Footer"
-import Header from './components/Header'
+import Providers from '../providers'
+import Footer from "../components/Footer"
+import Header from '../components/Header'
 import { Locale, i18n } from '@/i18n-config'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/react'
