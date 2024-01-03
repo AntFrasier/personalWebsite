@@ -4,7 +4,7 @@ import { DefaultSession, Session } from 'next-auth'
 import { SessionProvider } from "next-auth/react"
 import AdminHome from './components/AdminHome'
 
-export default async function Home({
+export default function Admin({
      session 
     }:{
     session : Session}
