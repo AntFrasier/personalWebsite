@@ -1,10 +1,11 @@
-import prisma from "@/prisma/prismaClient"
+import prisma from "../../../../lib/prisma"
 
 const newPost = async () => {
     const posts = await prisma.post.findFirst()
+    
     console.log("the post : ", posts)
     return (
-        <div>posts {posts?.authorId}</div>
+        <div>{posts?.name}</div>
     )
 }
 
