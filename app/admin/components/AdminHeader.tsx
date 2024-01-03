@@ -6,7 +6,7 @@ const AdminHeader = async () => {
 
   return (
     <>
-    <header id="header" className="flex flex-col w-sm h-[100vh]  align-center gap-10 p-5 bg-secondary shadow-lg">
+    <header id="header" className="flex flex-col w-sm fixed h-[100vh] max-w-[200px] align-center gap-10 p-5 bg-secondary shadow-lg">
      
         <div id="logo">
             <Image 

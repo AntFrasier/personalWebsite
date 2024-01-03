@@ -54,26 +54,43 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-// model Categorie {
-//   id         String   @id @default(cuid())
-//   name       String   
-// }
+model Categorie {
+  id         Int  @unique @default(autoincrement())
+  name_fr    String   
+  name_en    String 
+  posts      Post[] 
+}
 
-// model tag {
-//   id         String   @id @default(cuid())
-//   name       String   
-// }
+model Tag {
+  id         Int  @unique @default(autoincrement())
+  name_fr    String   
+  name_en    String   
+  posts       TagsOnPosts[]
+}
 
-// model Post {
-//   id              String   @id @default(cuid())
-//   name            String   
-//   title_fr        String
-//   title_en        String
-//   description_fr  String
-//   description_en  String
-//   h1_fr           String
-//   h1_en           String
-//   intro_fr        String
-//   intro_en        String
+model Post {
+  id              Int   @unique @default(autoincrement())
+  name            String  
+  tags            TagsOnPosts[]
+  categorie       Categorie @relation(fields: [categorieId], references: [id])
+  categorieId     Int
+  title_fr        String
+  title_en        String
+  description_fr  String
+  description_en  String
+  h1_fr           String
+  h1_en           String
+  intro_fr        String
+  intro_en        String
+}
 
-// }
+model TagsOnPosts {
+  post        Post     @relation(fields: [postId], references: [id])
+  postId      Int // relation scalar field (used in the `@relation` attribute above)
+  tag         Tag @relation(fields: [tagId], references: [id])
+  tagId       Int // relation scalar field (used in the `@relation` attribute above)
+  assignedAt  DateTime @default(now())
+  assignedBy  String
+
+  @@id([postId, tagId])
+}

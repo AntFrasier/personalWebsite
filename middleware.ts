@@ -18,7 +18,6 @@ export default withAuth ( function middleware(request: NextRequestWithAuth) {
       // const url = request.nextUrl.clone()
       // url.pathname = '/admin'
       const url = new URL('/login', request.url)
-      console.log(url)
       return NextResponse.redirect(url)
     
   }
