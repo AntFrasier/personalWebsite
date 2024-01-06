@@ -1,22 +1,41 @@
 "use client";
  
-import { useState } from "react";
+import { ReactEventHandler, SyntheticEvent, useState } from "react";
 import { UploadButton } from "../../../lib/uploadthing";
 import Image from "next/image";
 import { UploadFileResponse } from "uploadthing/client";
 import { PrismaClient } from "@prisma/client";
+import { BlogPost } from "@/blogTypes";
 
 const AddBlog = () => {
+    const [blogObject, setBlogObject] =  useState<BlogPost | null>(null);
+    const saveToDb = async (event:SyntheticEvent) => {
+        console.log("the event :", event)
+        // alert('An essay was submitted: ' + draft);
+        event.preventDefault();
+    }
     // const tags = await prisma?.tag.findMany()
     const [image, setImage] = useState<UploadFileResponse<{
         uploadedBy: any;
     }>[]>([])
     const [loadingImage, setLoadingImage] = useState<boolean>(false)
+    const [draft, setDraft] = useState<boolean>(false)
+    const [h1_fr, setH1_fr] = useState<string>("")
+    const [h1_en, setH1_en] = useState<string>("")
+    const [titre_fr, setTitre_fr] = useState<string>("")
+    const [titre_en, setTitre_en] = useState<string>("")
+    const [desc_fr, setDesc_fr] = useState<string>("")
+    const [desc_en, setDesc_en] = useState<string>("")
+    const [content_fr, setContent_fr] = useState<string>("")
+    const [content_en, setContent_en] = useState<string>("")
+    const [mainImageUrl, setMainImageUrl] = useState<string>("")
+    const [thumbImageUrl, setThumbImageUrl] = useState<string>("")
+
 
     return (
-        <main className="flex flex-col w-full justify-start items-left m-10 pl-[250px]"> {/* px-8 md:px-24*/}
+        <main className="flex flex-col w-full justify-start items-left m-10 pl-[250px] pb-2"> {/* px-8 md:px-24*/}
             <h1> Ajoutez un Post de Blog !</h1>
-            <form>
+            <form onSubmit={saveToDb}>
                 <label>ajouter une image </label>
                 {image.length ?( 
                 <>
@@ -54,6 +73,16 @@ const AddBlog = () => {
                     />
                     )}
                     <div className="flex flex-col">
+                    <label>Etat</label>
+                    <div className="flex flex-row gap-3 pl-2">
+                        <input 
+                            type="checkbox" 
+                            id="draft" 
+                            checked={draft}
+                            onChange={ () => setDraft(!draft)}
+                            />
+                        {draft ? <p>Brouillon</p> : <p>Publié</p>}
+                    </div> 
                     <label>Titre</label>
                     <div className="flex flex-row w-full flex-wrap gap-3">
                         <div className=" flex flex-grow relative">
@@ -97,6 +126,7 @@ const AddBlog = () => {
                             <div className=" btn-secondary absolute border-2 !p-1 !rounded-md bottom-2 right-2">EN</div>
                         </div>
                         </div>
+                <input type="submit" value="Submit" className="btn-secondary"/>
             </form>
         </main>
     )

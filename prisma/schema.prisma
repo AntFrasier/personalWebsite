@@ -71,6 +71,7 @@ model Tag {
 model Post {
   id              Int   @unique @default(autoincrement())
   name            String  
+  draft           Boolean @default(true)
   tags            TagsOnPosts[]
   categorie       Categorie @relation(fields: [categorieId], references: [id])
   categorieId     Int
@@ -80,8 +81,10 @@ model Post {
   description_en  String
   h1_fr           String
   h1_en           String
-  intro_fr        String
-  intro_en        String
+  content_fr      String //html
+  content_en      String //html
+  thumbImageUrl   String
+  mainImageUrl    String
 }
 
 model TagsOnPosts {
