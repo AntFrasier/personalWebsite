@@ -46,5 +46,9 @@
         "metaDescription" : "Welcome to my blog, i''l try to explain and go deeper in the blockchain and smart contract devellopement.",
         "h1" : "Blockchain, Smart contracts and web3 development blog",
         "cat":"Categories"
+    },
+    "blogPost" :{
+        "name" : "BlogPost",
+        "notFound" : "Sorry this Blog Post doesn't exist."
     }
 }

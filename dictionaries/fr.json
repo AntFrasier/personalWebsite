@@ -46,5 +46,10 @@
         "metaDescription" : "Bienvenue sur mon blog, je vais essayer ici d'ecrire un maximum de concept et d'expliquer et de vulgariser le fonctionement de la blockchain et des smart contract.",
         "h1" : "Blog sur la Blockchain les smart contracts et le developpement web",
         "cat":"Catégories"
+    },
+
+    "blogPost" :{
+        "name" : "BlogPost",
+        "notFound" : "Désolé ce Post n'existe pas."
     }
 }

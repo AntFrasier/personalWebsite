@@ -1,34 +1,53 @@
-import { sql } from '@vercel/postgres';
-import { NextResponse } from 'next/server';
+import { NextApiRequest, NextApiResponse } from 'next';
+import prisma from '../../../lib/prisma';
 
-const post = {
-    id:0,
-    title:"Blog Post 0",
-    description:"this the description of the blog post",
-    h1:"My first blog post",
-    categories:["Blockhain"],
-    thumbnailUrl:"loyaltEth-thumbnail.jpg",
-    headerImg:"loyaltEth-thumbnail.jpg",
-    thumbnailAlt:"On vous explique la Blmockchain",
-    intro: "Introduction ENGLISH",
-    h21:"titre 2 1",
-    p1:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-    h22:"titre 2 2",
-    p2:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-    h23:"titre 2 3",
-    p3:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-    conslusion:"The conclusion"
-  }
-export async function GET(request: Request) {
+// POST /api/create-blog-post
+// Required fields in body: name
 
- 
-  try {
+async function handler(req:Request, res:NextApiResponse) {
+  if (req.method == "POST") {
     
-    await sql`INSERT INTO categorie (name) VALUES ();`;
-  } catch (error) {
-    return NextResponse.json({ error }, { status: 500 });
+    const data = await req.json()
+    console.log(data)
+    const { 
+      name,   
+      draft,    
+      categorie,       
+      title_fr,        
+      title_en,        
+      description_fr,  
+      description_en,  
+      h1_fr,           
+      h1_en,   
+      slug,        
+      content_fr,       //html
+      content_en,       //html
+      thumbImageUrl,   
+      mainImageUrl,
+     } = data;
+    const result = await prisma.post.create({
+      data: {
+        name:  name,   
+        draft : draft,    
+        categorieId : categorie,       
+        title_fr : title_fr,        
+        title_en : title_en,        
+        description_fr : description_fr,  
+        description_en : description_en,  
+        h1_fr :h1_fr,           
+        h1_en : h1_en,     
+        slug : slug,      
+        content_fr : content_fr,       //html
+        content_en : content_en,       //html
+        thumbImageUrl : thumbImageUrl,   
+        mainImageUrl : mainImageUrl,   
+      },
+    });
+    return Response.json({body : result});
   }
- 
-  const {rows} = await sql`SELECT * FROM categorie;`;
-  return NextResponse.json({ rows }, { status: 200 });
+
+
+
 }
+
+export {handler as GET , handler as POST}

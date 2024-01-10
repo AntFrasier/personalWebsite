@@ -2,11 +2,10 @@ export interface BlogPost {
     id              :int   
     name            :string  
     draft           :boolean
-    tags            :string[]
-    categorie       :string
     categorieId     :int
     title_fr        :string
     title_en        :string
+    slug            :string
     description_fr  :string
     description_en  :string
     h1_fr           :string
@@ -16,3 +15,18 @@ export interface BlogPost {
     thumbImageUrl   :string
     mainImageUrl   :string
 }
+// id: number;
+//     name: string;
+//     draft: boolean;
+//     categorieId: number;
+//     title_fr: string;
+//     title_en: string;
+//     slug: string;
+//     description_fr: string;
+//     description_en: string;
+//     h1_fr: string;
+//     h1_en: string;
+//     content_fr: string;
+//     content_en: string;
+//     thumbImageUrl: string;
+//     mainImageUrl: string;

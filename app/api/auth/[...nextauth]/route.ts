@@ -39,16 +39,16 @@ export const authOptions = {
     callbacks: {
        
         async jwt ({token, user}) {
-            console.log ("the user in jwt", user)
-            console.log ("the token in jwt", token)
+            // console.log ("the user in jwt", user)
+            // console.log ("the token in jwt", token)
             if (user) token.role = user.role;
-            console.log ("the token in jwt after asign", token)
+            // console.log ("the token in jwt after asign", token)
             return token
         },
         async session ({session, token, user}) {
-            console.log("user : ", user)
-            console.log("token : ", token)
-            console.log("session : ", session)
+            // console.log("user : ", user)
+            // console.log("token : ", token)
+            // console.log("session : ", session)
             if (session.user) {
                 session.user.role = token.role
                 // session.user.id = user.id
@@ -57,7 +57,7 @@ export const authOptions = {
             return session
         },
          async signIn({ user, account, profile, email, credentials }) {
-            console.log("the user role in signIn: ",user.role)
+            // console.log("the user role in signIn: ",user.role)
           
             const isAllowedToSignIn = user.role == 'admin' ? true : false;
             if (isAllowedToSignIn) {
