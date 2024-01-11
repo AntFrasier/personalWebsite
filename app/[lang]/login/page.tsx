@@ -1,5 +1,5 @@
 
-import LoginButton from '@/app/admin/components/LoginButton'
+import LoginButton from '@/app/components/admin/LoginButton'
 
 
 

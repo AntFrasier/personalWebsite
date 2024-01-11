@@ -6,6 +6,7 @@ import Image from "next/image";
 import { UploadFileResponse } from "uploadthing/client";
 import { PrismaClient } from "@prisma/client";
 import { BlogPost } from "@/blogTypes";
+import Router from "next/router";
 
 const AddBlog = () => {
     const [blogObject, setBlogObject] =  useState<BlogPost | null>(null);
@@ -44,9 +45,6 @@ const AddBlog = () => {
         }
     },[])
 
-    const handleChangeCategorie = () => {
-
-    }
     const saveToDb = async (event:SyntheticEvent) => {
         console.log("the event :", event)
         // alert('An essay was submitted: ' + draft);
@@ -68,11 +66,13 @@ const AddBlog = () => {
                 thumbImageUrl : thumbImageUrl,   
                 mainImageUrl : mainImageUrl,   
             };
-            await fetch('/api/create-blog-post', {
+            const res = await fetch('/api/create-blog-post', { //cant do a server side function because i'm in a use client component
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(body),
             });
+            const data = await res.json()
+            Router.push(`/adminBlogPost/${data.body.slug}`)
           } catch (error) {
             console.error(error);
           }

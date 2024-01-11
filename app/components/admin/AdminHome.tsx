@@ -1,4 +1,4 @@
-import LoginButton from "@/app/admin/components/LoginButton"
+import LoginButton from "@/app/components/admin/LoginButton"
 import { useSession, signIn, signOut } from "next-auth/react"
 import LogoutButton from "./LogoutButton"
 import Image from "next/image"

@@ -45,7 +45,8 @@
         "metaTitle" : "Developpement web blockchain et web3 | Blog",
         "metaDescription" : "Bienvenue sur mon blog, je vais essayer ici d'ecrire un maximum de concept et d'expliquer et de vulgariser le fonctionement de la blockchain et des smart contract.",
         "h1" : "Blog sur la Blockchain les smart contracts et le developpement web",
-        "cat":"Catégories"
+        "cat":"Catégories",
+        "read": "Lire"
     },
 
     "blogPost" :{

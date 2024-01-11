@@ -2,7 +2,7 @@
 
 import { DefaultSession, Session } from 'next-auth'
 import { SessionContextValue, SessionProvider } from "next-auth/react"
-import AdminHome from './components/AdminHome'
+import AdminHome from '../components/admin/AdminHome'
 
 export default function Admin({
      session 

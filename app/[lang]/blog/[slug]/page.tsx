@@ -28,8 +28,8 @@ if (blogPost.length == 0 ) {
   } 
 } else { 
     return {
-      title: lang == 'fr' ? blogPost[0].title_fr : blogPost[0].title_en,//"Cyril Maranber | Web Developer",
-      description: lang == 'fr' ? blogPost[0].description_fr : blogPost[0].description_en, //"Welcome to my personal website. you'll find here all the information regarding, what i've done",
+      title: lang == 'fr' ? blogPost[0].title_fr : blogPost[0].title_en,
+      description: lang == 'fr' ? blogPost[0].description_fr : blogPost[0].description_en, 
 
     }
   }

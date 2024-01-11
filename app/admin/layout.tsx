@@ -2,7 +2,7 @@
 import { getServerSession } from 'next-auth'
 import Footer from '../components/Footer'
 import '../globals.css'
-import AdminHeader from './components/AdminHeader'
+import AdminHeader from '../components/admin/AdminHeader'
 import { authOptions } from '../api/auth/[...nextauth]/route'
 
 

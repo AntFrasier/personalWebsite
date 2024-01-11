@@ -10,7 +10,7 @@ const AdminMenu = () => {
          className="btn-primary">dashboard</Link>
       </li>
       <li className='hover-underline'>
-        <Link href={`/admin/addBlog`}  className="btn-primary">Add blog</Link>
+        <Link href={`/admin/AdminBlogPost`}  className="btn-primary">Blog</Link>
       </li>
       <li className='hover-underline'>
         <Link href={`/admin/addPortfolio`}  className="btn-primary">Add portfolio</Link>
