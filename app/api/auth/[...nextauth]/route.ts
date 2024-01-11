@@ -18,7 +18,6 @@ export const authOptions = {
   providers: [
     GithubProvider({
         profile(profile : GithubProfile) {
-            //console.log("github profile : ", profile)
             return {
                 // ...profile,
                 id: profile.id.toString(),
@@ -39,34 +38,34 @@ export const authOptions = {
     callbacks: {
        
         async jwt ({token, user}) {
-            // console.log ("the user in jwt", user)
-            // console.log ("the token in jwt", token)
             if (user) token.role = user.role;
-            // console.log ("the token in jwt after asign", token)
             return token
         },
-        async session ({session, token, user}) {
-            // console.log("user : ", user)
-            // console.log("token : ", token)
-            // console.log("session : ", session)
-            if (session.user) {
-                session.user.role = token.role
-                // session.user.id = user.id
+        session({ session, token }) {
+            // console.log(user, token)
+            return { ...session,
+              user: { ...session.user,
+                role: token.role,
+              }
             }
+          },
+        // async session ({session, token}) {
+
+        //     if (session.user) {
+        //         session.user.role = token.role
+        //         // session.user.id = user.id
+        //     }
             
-            return session
-        },
+        //     return session
+        // },
          async signIn({ user, account, profile, email, credentials }) {
-            // console.log("the user role in signIn: ",user.role)
-          
-            const isAllowedToSignIn = user.role == 'admin' ? true : false;
+            console.log(user)
+             const isAllowedToSignIn = user.role == 'admin' ? true : false;
             if (isAllowedToSignIn) {
                 return true
             } else {
-              // Return false to display a default error message
               return '/unauthorized'
-              // Or you can return a URL to redirect to:
-              // return '/unauthorized'
+
             }
           },
 
