@@ -56,7 +56,7 @@ const blogPosts = await getAllposts("published")
         <ul className='flex flex-col gap-5 mt-5 w-full max-w-4xl mb-16'>
           {blogPosts?.map ((post) => {
             return (
-              <BlogPreview post = {post} />
+              <BlogPreview key= {post.id} post = {post} />
               //todo add blog preview component
             )
           })}
