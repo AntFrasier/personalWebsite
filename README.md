@@ -34,7 +34,7 @@ then have a "single page" per article
 
 article 1 : what is blockchain  
 article 2 : what is a wallet  
-article 3 : ?  
+article 3 : what is speed run ethereum ?  
 
 push to prod  
 

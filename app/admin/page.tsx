@@ -1,19 +1,17 @@
 'use client'
 
 import { DefaultSession, Session } from 'next-auth'
-import { SessionContextValue, SessionProvider } from "next-auth/react"
+import { SessionProvider } from "next-auth/react"
 import AdminHome from '../components/admin/AdminHome'
-import { PageProps } from '@/.next/types/app/admin/layout'
-import { AppProps } from 'next/app'
 
 export default function Admin({
-     pageProps 
-    }: AppProps<{
-    session : Session}>
+     session 
+    }:{
+    session : Session} //Session
      ) {
     return (
         <main className="flex flex-row-reverse justify-end flex-wrap lg:p-24 2xl:ml-80 xl:ml-48 md:ml-24 lg:mt-24 p-12 mt-12">
-        <SessionProvider session={pageProps.session}>
+        <SessionProvider session={session}>
            <AdminHome />
         </SessionProvider>
         </main>
