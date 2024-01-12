@@ -11,7 +11,7 @@ const AdminHome = () => {
         <div>
             
             <Image 
-                src={session.user?.image}
+                src={session.user.image ? session.user.image : "/img/defaultAvatar.svg"}
                 alt="session.user?.name"
                 unoptimized
                 width={150}

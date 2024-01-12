@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '../../../lib/prisma';
-import { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {
     id: number;
@@ -9,7 +8,7 @@ type Data = {
 }[]
 
 
-async function handler(req:NextApiRequest, res:NextApiResponse<Data>) {
+async function handler(req:NextRequest, res:NextResponse<Data>) {
 
     if (req.method == 'POST') {
         console.log("POST METHOD FOR ACTGORIES");

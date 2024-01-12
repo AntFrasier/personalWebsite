@@ -11,7 +11,8 @@ import Router from "next/router";
 const AddBlog = () => {
     const [blogObject, setBlogObject] =  useState<BlogPost | null>(null);
     const [image, setImage] = useState<UploadFileResponse<{
-        uploadedBy: any;
+        uploaded: any, 
+        url:any;
     }>[]>([])
     const [loadingImage, setLoadingImage] = useState<boolean>(false)
     const [draft, setDraft] = useState<boolean>(true)
@@ -99,6 +100,7 @@ const AddBlog = () => {
                  ) : (
                 
                 <UploadButton
+                    onUploadBegin={() => setLoadingImage(true)}
                     className="btn-secondary"
                     endpoint="imageUploader"
                     onClientUploadComplete={(res) => {
@@ -115,6 +117,7 @@ const AddBlog = () => {
                     onUploadError={(error: Error) => {
                     // Do something with the error.
                     alert(`ERROR! ${error.message}`);
+                    setLoadingImage(false)
                     }}
                     />
                     )}

@@ -1,10 +1,10 @@
 import prisma from '../../../lib/prisma';
-import { NextApiRequest, NextApiResponse } from 'next';
 import type { BlogPost } from '@/blogTypes';
+import { NextRequest, NextResponse } from 'next/server';
 
 
 
-async function handler(req:NextApiRequest, res:NextApiResponse<BlogPost>) {
+async function handler(req:NextRequest, res:NextResponse<BlogPost>) {
 
     if (req.method == 'POST') {
         console.log("POST METHOD FOR ACTGORIES");
