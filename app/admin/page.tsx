@@ -1,12 +1,7 @@
 'use client'
 
-import { DefaultSession, Session } from 'next-auth'
 import { SessionProvider } from "next-auth/react"
 import AdminHome from '../components/admin/AdminHome'
-import { FC } from 'react'
-import { AppProps } from 'next/app'
-
-type Props = {session : Session}
 
 export default function Admin ({
      session 
@@ -19,6 +14,6 @@ export default function Admin ({
         </SessionProvider>
         </main>
     )
-    }
+}
 
 

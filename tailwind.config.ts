@@ -26,7 +26,7 @@ const config: Config = {
           "base-content": "#212638",
           info: "#EC550E",
           success: "#34EEB6",
-          warning: "#FFCF72",
+          warning: "#FF1F1F",
           foregroundRgb: "255, 255, 255",
           backgroundStartRgb: "18, 33, 62",
           backgroundEndRgb: "#ffffff",
@@ -91,6 +91,8 @@ const config: Config = {
       // => @media (min-width: 1280px) { ... }
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
+      '4xl': '2048px',
+      // => @media (min-width: 2048px) { ... }
     },
   },
   plugins: [require("daisyui")],
