@@ -28,7 +28,7 @@ export default async function RootLayout({
     <html lang="fr">
       <body className='flex flex-row relative'>
         <AdminHeader />
-          <div className="flex flex-col max-w-4xl items-center p-9 ml-[200px]">
+          <div className="flex flex-col w-full max-w-[2048px] items-center p-3 ml-[200px] pb-12">
             {children}
           </div>
         <Footer />

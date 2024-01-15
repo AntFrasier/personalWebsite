@@ -10,13 +10,16 @@ const AdminMenu = () => {
          className="btn-primary">dashboard</Link>
       </li>
       <li className='hover-underline'>
-        <Link href={`/admin/AdminBlogPost`}  className="btn-primary">Blog</Link>
+        <Link href={`/admin/adminBlogPost`}  className="btn-primary">Blog</Link>
       </li>
       <li className='hover-underline'>
         <Link href={`/admin/addPortfolio`}  className="btn-primary">Add portfolio</Link>
       </li>
       <li className='hover-underline'>
         <Link href={`/admin`}  className="btn-primary">Acount</Link>
+      </li>
+      <li className='hover-underline'>
+        <Link href={`/`}  className="btn-primary">Fermer</Link>
       </li>
     </>
   )

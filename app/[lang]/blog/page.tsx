@@ -1,32 +1,9 @@
 
 import React from "react"
-import Image from "next/image"
 import { getDictionary } from "@/lib/dictionary"
 import { Locale } from "@/i18n-config"
-import Link from "next/link"
-import { BlogPost } from "@/blogTypes"
 import { getAllposts } from "@/lib/getAllPosts"
 import BlogPreview from "@/app/components/blogComponent/BlogPreview"
-
-// const blogPosts : {
-//   id:number
-//   title:string
-//   description:string
-//   h1:string
-//   categories:string[]
-//   thumbnailUrl:string
-//   thumbnailAlt:string
-// }[] = [
-//   {
-//     id:0,
-//     title:"Blog Post 1",
-//     description:"this the description of the blog post",
-//     h1:"My first blog post",
-//     categories:["test"],
-//     thumbnailUrl:"",
-//     thumbnailAlt:"my alt thumbnail",
-//   }
-// ]
 
 export async function generateMetadata({
   params: { lang },
@@ -56,8 +33,7 @@ const blogPosts = await getAllposts("published")
         <ul className='flex flex-col gap-5 mt-5 w-full max-w-4xl mb-16'>
           {blogPosts?.map ((post) => {
             return (
-              <BlogPreview key= {post.id} post = {post} />
-              //todo add blog preview component
+              <BlogPreview key= {post.id} post = {post} lang={lang} />
             )
           })}
         </ul>

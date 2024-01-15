@@ -1,22 +1,25 @@
-import { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '../../../lib/prisma';
+import { Post } from '@prisma/client';
 
 // POST /api/create-blog-post
 // Required fields in body: name
 
-async function handler(req:Request, res:NextApiResponse) {
+async function handler(req:Request) {
   if (req.method == "POST") {
     
-    const data = await req.json()
+    const data : Post = await req.json()
     console.log(data)
     const { 
-      name,   
+      name_fr,   
+      name_en,   
       draft,    
-      categorie,       
+      categorieId,       
       title_fr,        
       title_en,        
       description_fr,  
       description_en,  
+      metaDescription_fr,  
+      metaDescription_en,  
       h1_fr,           
       h1_en,   
       slug,        
@@ -27,13 +30,16 @@ async function handler(req:Request, res:NextApiResponse) {
      } = data;
     const result = await prisma.post.create({
       data: {
-        name:  name,   
+        name_fr:  name_fr,   
+        name_en:  name_en,   
         draft : draft,    
-        categorieId : categorie,       
+        categorieId : categorieId,       
         title_fr : title_fr,        
         title_en : title_en,        
         description_fr : description_fr,  
         description_en : description_en,  
+        metaDescription_fr: metaDescription_fr,  
+        metaDescription_en : metaDescription_en, 
         h1_fr :h1_fr,           
         h1_en : h1_en,     
         slug : slug,      

@@ -1,10 +1,10 @@
-import { BlogPost } from "@/blogTypes"
 import { getAllposts } from "@/lib/getAllPosts"
 import BlogPreview from "@/app/components/blogComponent/BlogPreview"
 import Link from "next/link"
 import AdminBlogButtons from "@/app/components/admin/AdminBlogButtons"
+import { Locale } from "@/i18n-config"
 
-const AdminBlogPost = async () => {
+const AdminBlogPost = async ({ params: { lang }} : {params : {lang:Locale}}) => {
     const allBlogPost = await getAllposts("all")
     
     return (
@@ -12,7 +12,7 @@ const AdminBlogPost = async () => {
             <h1>
                 Admin Blog Post
             </h1>
-            <Link href={`admin/addBlog`}>
+            <Link href={`/admin/addBlog`}>
                 <button type="button" className="btn-primary portfolio hover-underline ">Add new Post</button>
             </Link>
             <ul>
@@ -22,7 +22,7 @@ const AdminBlogPost = async () => {
                         <div className="flex flex-row gap-3 pt-3">
                             <AdminBlogButtons blog = {blog} />
                         </div>
-                        <BlogPreview post ={blog} />
+                        <BlogPreview key={blog.id} post ={blog} lang = {lang}/>
                         
                         </>
 
