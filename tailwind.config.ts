@@ -1,11 +1,13 @@
-import type { Config } from 'tailwindcss'
+// import type { Config } from 'tailwindcss'
+import { withUt } from "uploadthing/tw";
 
-const config: Config = {
+
+export default withUt({
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
-  ], darkTheme: "dark",
+  ],darkTheme: "dark",
   // DaisyUI theme colors
   daisyui: {
     themes: [
@@ -32,9 +34,9 @@ const config: Config = {
           backgroundEndRgb: "#ffffff",
           btnOver:"#3CA8E6",
           error: "#FF8863",
-
+  
           "--rounded-btn": "9999rem",
-
+  
           ".tooltip": {
             "--tooltip-tail": "6px",
           },
@@ -60,9 +62,9 @@ const config: Config = {
           success: "#34EEB6",
           warning: "#FFCF72",
           error: "#FF8863",
-
+  
           "--rounded-btn": "9999rem",
-
+  
           ".tooltip": {
             "--tooltip-tail": "6px",
             "--tooltip-color": "hsl(var(--p))",
@@ -80,13 +82,13 @@ const config: Config = {
     screens: {
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
-
+  
       'md': '768px',
       // => @media (min-width: 768px) { ... }
-
+  
       'lg': '1024px',
       // => @media (min-width: 1024px) { ... }
-
+  
       'xl': '1280px',
       // => @media (min-width: 1280px) { ... }
       '2xl': '1536px',
@@ -95,6 +97,10 @@ const config: Config = {
       // => @media (min-width: 2048px) { ... }
     },
   },
-  plugins: [require("daisyui")],
-}
-export default config
+  
+    plugins: [require("daisyui")],
+  }
+)
+
+// const config: Config = { 
+// export default config

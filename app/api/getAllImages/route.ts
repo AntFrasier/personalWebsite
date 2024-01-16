@@ -6,10 +6,10 @@ import { NextRequest } from 'next/server';
 async function handler(req:NextRequest) {
 
     if (req.method == 'POST') {
-        console.log("POST METHOD FOR ACTGORIES");
+        console.log("POST METHOD FOR images");
     }
     else {
-        const result = await prisma.post.findMany();
+        const result = await prisma.dbImage.findMany();
         return Response.json({body : result})
     }
     }
