@@ -13,7 +13,7 @@ const BlogPreview = async ({post, lang} : {post:Post, lang :Locale}) => { //lang
                 <div className="flex flex-col border-b-2 origin-center ease-in-out duration-300 border-primary-content hover:border-info">
                   <div className='flex flex-row items-start lg:flex-nowrap flex-wrap gap-3 px-5 py-2 w-full'>
                     <Image 
-                      src={post.mainImageUrl != "" ? `${post.mainImageUrl}` : "/img/blog/Blog_default_thumbnail.jpeg"}
+                      src={post.thumbImageUrl != "" ? `${post.thumbImageUrl}` : "/img/blog/Blog_default_thumbnail.jpeg"}
                       alt={""}
                       width={350}
                       height={250}

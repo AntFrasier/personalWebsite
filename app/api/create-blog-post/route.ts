@@ -25,15 +25,21 @@ async function handler(req:Request) {
       slug,        
       content_fr,       //html
       content_en,       //html
-      thumbImageUrl,   
+      thumbImageUrl, 
+      thumbImageId,  
       mainImageUrl,
+      mainImageId
      } = data;
     const result = await prisma.post.create({
       data: {
         name_fr:  name_fr,   
         name_en:  name_en,   
-        draft : draft,    
-        categorieId : categorieId,       
+        draft : true,    
+        categorie : {
+          connect : {
+            id: Number(categorieId)
+          }
+        },       
         title_fr : title_fr,        
         title_en : title_en,        
         description_fr : description_fr,  
@@ -45,10 +51,19 @@ async function handler(req:Request) {
         slug : slug,      
         content_fr : content_fr,       //html
         content_en : content_en,       //html
-        thumbImageUrl : thumbImageUrl,   
-        mainImageUrl : mainImageUrl,   
-      },
-    });
+        thumbImage : {
+          connect : {
+            url : thumbImageUrl,
+            id : thumbImageId
+          }
+        },
+        mainImage : {
+          connect : {
+            url: mainImageUrl,   
+            id : mainImageId,
+          }
+        },
+    }});
     return Response.json({body : result});
   }
 

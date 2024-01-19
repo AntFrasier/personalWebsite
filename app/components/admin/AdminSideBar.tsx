@@ -7,7 +7,7 @@ const AdminSideBar = async () => {
 
   return (
     <>
-    <header id="header" className="flex flex-col w-sm h-[100vh] max-w-[200px] align-center gap-10 p-5 bg-secondary shadow-lg overflow-hidden">
+    <header id="header" className="flex flex-col w-sm max-w-[200px] align-center gap-10 p-5 bg-secondary shadow-lg overflow-hidden">
      
         <div id="logo">
           <Link href={`/`}>
