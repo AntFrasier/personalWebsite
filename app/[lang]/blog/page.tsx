@@ -12,9 +12,15 @@ export async function generateMetadata({
 }) {
   // read route params
 const dictionary = await getDictionary(lang)
+const otherLang = lang == "fr" ? {"en" : "/en/blog"} : {"fr" : "/fr/blog"}
+
 return {
   title: dictionary.blog.metaTitle,//"Cyril Maranber | Web Developer",
   description: dictionary.blog.metaDescription, //"Welcome to my personal website. you'll find here all the information regarding, what i've done",
+  alternates : {
+    canonical: `/${lang}/contact`,
+    languages: otherLang,
+},
 }
 }
 

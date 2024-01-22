@@ -1,8 +1,18 @@
 
 import LoginButton from '@/app/components/admin/LoginButton'
 
-
-
+export async function generateMetadata() {
+  return {
+    title: "Login Page",
+    robots: {
+      index: false,
+      follow: false,
+      googleBot: {
+          index:false,
+          follow:false
+      }
+    }
+}}
 
 const Admin = async () => {
 

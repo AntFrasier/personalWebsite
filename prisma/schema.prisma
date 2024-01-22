@@ -74,7 +74,7 @@ model DbImage {
   name_en String
   alt_fr  String
   alt_en  String
-  url     String
+  url     String      
   thumbImage Post[] @relation("thumbImage")
   MainImage Post[] @relation("MainImage")
   

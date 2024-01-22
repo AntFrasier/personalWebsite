@@ -2,8 +2,8 @@ import Image from 'next/image'
 import { getDictionary } from '@/lib/dictionary'
 import type { Locale } from '@/i18n-config'
 import { getBlogPost } from '@/lib/getBlogPost'
-import { BlogPost } from '@/blogTypes'
 import MyPost from '@/app/components/blogComponent/MyPost'
+import { Post } from '@prisma/client'
 
 // const dictionary = await 
 
@@ -13,7 +13,8 @@ export async function generateMetadata({
   params: { lang: Locale, slug:string }
 }) {
   // read route params
-const blogPost:BlogPost[] = await getBlogPost(slug);
+const otherLang = lang == "fr" ? {"en" : `/en/blog/${slug}`} : {"fr" : `/fr/blog/${slug}`}
+const blogPost:Post[] = await getBlogPost(slug);
 if (blogPost.length == 0 ) {
     return {
       title: "Blog Not found",
@@ -30,6 +31,10 @@ if (blogPost.length == 0 ) {
     return {
       title: lang == 'fr' ? blogPost[0].title_fr : blogPost[0].title_en,
       description: lang == 'fr' ? blogPost[0].description_fr : blogPost[0].description_en, 
+      alternates : {
+        canonical: `/${lang}/blog/${slug}`,
+        languages: otherLang,
+    },
 
     }
   }
@@ -42,7 +47,7 @@ export default async function BlogPost({
 }) {
 
   const dictionary = await getDictionary(lang)
-  const blogPost:BlogPost[] = await getBlogPost(slug);
+  const blogPost:Post[] = await getBlogPost(slug);
   
   if (blogPost.length == 0) {
     return (
@@ -50,7 +55,7 @@ export default async function BlogPost({
     )
   }
   else {
-    const myBlogPost:BlogPost = blogPost[0]
+    const myBlogPost:Post = blogPost[0]
     return (
       
       <> 

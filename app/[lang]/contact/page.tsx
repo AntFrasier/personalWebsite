@@ -91,7 +91,6 @@ const Contacts = async ( { params: { lang },
     const dictionary = await getDictionary(lang)
   return (
     <>
-    <Seo lang={lang} />
     <main className="flex flex-col items-center justify-between md:px-24 px-8 xl:pt-24 pt-12">
         <h1>{dictionary.contact.h1} </h1> {/*This is where you&#39;ll find the way to reach me. 📧 Feel free !*/}
         <ul className='flex flex-col gap-5 mt-5 w-full max-w-md mb-16'>
