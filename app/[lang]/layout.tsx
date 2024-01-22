@@ -7,10 +7,24 @@ import { Locale, i18n } from '@/i18n-config'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Metadata } from 'next'
+
  
 
 const inter = Inter({ subsets: ['latin'] })
 // const [theme, setTheme]= useState<boolean>(true)
+
+export const metadata: Metadata = {
+  applicationName: "Cyril Maranber Personal webSite",
+  authors: [{ name: "Cyril Maranber" }],
+  generator: 'Next.js',
+  keywords: ['cyril maranber', 'code', 'web development', 'javascript', 'react', 'node.js', 'next.js', 'web dev', 'html', 'css', 'solidity', 'blockchain', 'web3'],
+  referrer: 'origin-when-cross-origin',
+  creator: 'Cyril Maranber',
+  publisher: 'Cyril Maranber',
+  metadataBase: new URL('https://cyril-maranber.com/'),
+}
+
 
 export async function generateStaticParams() { //internationalization param
   return i18n.locales.map((locale) => ({ lang: locale }))
@@ -27,6 +41,7 @@ export default function RootLayout({
   params: {lang:Locale}
 }) {
   return (
+
     <html lang={params.lang}>
     {/* Google analytics script Has to be tested */}
     <Script src="https://www.googletagmanager.com/gtag/js?id=G-M4QVX2EWTN"/>

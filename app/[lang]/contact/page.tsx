@@ -11,9 +11,15 @@ export async function generateMetadata({
   }) {
     // read route params
   const dictionary = await getDictionary(lang)
+  const otherLang = lang == "fr" ? {"en" : "/en/contact"} : {"fr" : "/fr/contact"}
+
   return {
     title: dictionary.contact.metaTitle,//"Cyril Maranber | Web Developer",
     description: dictionary.contact.metaDescription, //"Welcome to my personal website. you'll find here all the information regarding, what i've done",
+    alternates : {
+        canonical: `/${lang}/contact`,
+        languages: otherLang,
+    },
   
   }
   }
@@ -84,6 +90,8 @@ const Contacts = async ( { params: { lang },
 }) => {
     const dictionary = await getDictionary(lang)
   return (
+    <>
+    <Seo lang={lang} />
     <main className="flex flex-col items-center justify-between md:px-24 px-8 xl:pt-24 pt-12">
         <h1>{dictionary.contact.h1} </h1> {/*This is where you&#39;ll find the way to reach me. 📧 Feel free !*/}
         <ul className='flex flex-col gap-5 mt-5 w-full max-w-md mb-16'>
@@ -109,6 +117,7 @@ const Contacts = async ( { params: { lang },
             })}
         </ul>
     </main>
+    </>
   )
 }
 
