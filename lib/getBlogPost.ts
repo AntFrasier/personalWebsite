@@ -5,5 +5,10 @@ export const getBlogPost = async (slug:string) => {
     return await prisma.post.findMany(
         {where : {
             slug :slug
-        }})
+        },
+        include: {
+            mainImage: true,
+            thumbImage:true,
+            categorie:true
+          },})
 }

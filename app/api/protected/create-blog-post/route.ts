@@ -1,14 +1,15 @@
-import prisma from '../../../lib/prisma';
+import apiAdminAuth from '@/lib/apiAdminAuth';
+import prisma from '../../../../lib/prisma';
 import { Post } from '@prisma/client';
 
 // POST /api/create-blog-post
 // Required fields in body: name
 
 async function handler(req:Request) {
+  const auth = await apiAdminAuth()
+    if (!auth)  return Response.json("Unauthorized",{status : 401})
   if (req.method == "POST") {
-    
     const data : Post = await req.json()
-    console.log(data)
     const { 
       name_fr,   
       name_en,   

@@ -45,7 +45,7 @@ const About = async ({
       <h2 className="">{dictionary.about.h24}</h2> 
       <p>{dictionary.about.p4}</p> < br/>
       <p>{dictionary.about.conclusion}</p>
-      <div id='' className={irish.className +' about-background xl:text-[300px] text-[200px] flex flex-end items-start justify-start uppercase no-wrap'}>
+      <div id='' className={irish.className +' about-background xl:text-[300px] text-[200px] flex flex-end items-start justify-start uppercase no-wrap overflow-hidden'}>
       {dictionary.about.name}
       </div>
     </main>

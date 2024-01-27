@@ -3,7 +3,15 @@ import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { authOptions } from "../auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 
-const f = createUploadthing();
+const f = createUploadthing({
+  errorFormatter: (err) => {
+    console.log("error", err);
+    console.log("cause", err.cause);
+    return {
+      message: err.message,
+    };
+  },
+});
  
 //const auth = (req: Request) => ({ id: "fakeId" }); // Fake auth function
 

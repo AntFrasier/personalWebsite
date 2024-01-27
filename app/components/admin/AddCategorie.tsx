@@ -7,6 +7,7 @@ import { Categorie } from "@prisma/client"
 const AddCategorie = ({setAddCategorie} : {setAddCategorie : Dispatch<SetStateAction<boolean>>}) => {
     const [categorie_fr, setCategorie_fr] = useState<string>("")
     const [categorie_en, setCategorie_en] = useState<string>("")
+    const [slug, setSlug] = useState<string>("")
     const [loading, setLoading] = useState<boolean>(false)
 
     const addCategorie = async (fr:string, en:string) => {
@@ -15,8 +16,9 @@ const AddCategorie = ({setAddCategorie} : {setAddCategorie : Dispatch<SetStateAc
             const body = {
                 name_fr : fr,
                 name_en : en,
+                slug:slug,
             }
-            const result = await fetch("/api/add-categorie", { //cant do a server side function because i'm in a use client component
+            const result = await fetch("/api/protected/add-categorie", { //cant do a server side function because i'm in a use client component
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body),
@@ -50,6 +52,10 @@ const AddCategorie = ({setAddCategorie} : {setAddCategorie : Dispatch<SetStateAc
                         <input type="text" id="categorieName_en" value={categorie_en} onChange={(e) => setCategorie_en(e.target.value)}></input>
                     </div>
                 </div>
+                    <div className="flex flex-col">
+                    <label>Categorie slug</label>
+                        <input type="text" id="categorieName_en" value={slug} onChange={(e) => setSlug(e.target.value)}></input>
+                    </div>
                 <div className="flex self-center gap-3">
                     <button className="btn-secondary w-36 hover:bg-success" type="button" onClick={() => addCategorie(categorie_fr, categorie_en)} >Ajouter</button>
                     <button className="btn-secondary w-36 hover:bg-warning" type="button" onClick={() => setAddCategorie(false)} >Annuler</button>

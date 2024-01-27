@@ -58,6 +58,7 @@ model Categorie {
   id      Int    @unique @default(autoincrement())
   name_fr String
   name_en String
+  slug    String @unique @default("to be replaced")
   posts   Post[]
 }
 
@@ -75,6 +76,7 @@ model DbImage {
   alt_fr  String
   alt_en  String
   url     String      
+  ut_key     String  
   thumbImage Post[] @relation("thumbImage")
   MainImage Post[] @relation("MainImage")
   

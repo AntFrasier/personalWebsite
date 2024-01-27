@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import AddCategorie from "@/app/components/admin/AddCategorie";
 import { useRouter } from "next/navigation";
 
+
 // type Inputs = typeof {Post} 
 // import { SyntheticEvent, useEffect, useState } from "react";
 // import { UploadButton } from "../../../lib/uploadthing";
@@ -25,7 +26,7 @@ import { useRouter } from "next/navigation";
 // import FormHeader from "@/app/components/admin/form/FormHeader";
 // // import ImagesPreview from "@/app/components/admin/ImagesPreview";
 
-const AddBlog = () => {
+const AddBlog = ({searchParams} : {searchParams : Post}) => {
     const {
         register,
         handleSubmit,
@@ -37,11 +38,19 @@ const AddBlog = () => {
     const [loading, setLoading] = useState<boolean>(false)
     const [categories, setCategories] = useState<Categorie[]>()
     const router = useRouter();
+    const givenBlog : Post | undefined = searchParams
+    console.log("givenBlog : ", givenBlog)
+    console.log("searchParams : ", searchParams)
+
     const saveToDb = async (data:Post) => {
         setLoading(true)
         try {
             const body = data
-            const result = await fetch("/api/create-blog-post", {
+            let apiUrl : string = "";
+            if (Object.keys(givenBlog).length == 0) {
+                apiUrl = "/api/protected/create-blog-post"
+            } else  apiUrl = "/api/protected/modif-blog-post"
+            const result = await fetch(`${apiUrl}`, {
                 method : "POST",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body),
@@ -59,6 +68,29 @@ const AddBlog = () => {
         saveToDb(data)
     }
     useEffect ( () => {
+        if (givenBlog) {
+            setValue("id", givenBlog.id)
+            setValue("name_fr", givenBlog.name_fr)
+            setValue("name_en", givenBlog.name_en)
+            setValue("h1_fr", givenBlog.h1_fr)
+            setValue("h1_en", givenBlog.h1_en)
+            setValue("categorieId", givenBlog.categorieId)
+            setValue("content_en", givenBlog.content_en)
+            setValue("content_fr", givenBlog.content_fr)
+            setValue("description_en", givenBlog.description_en)
+            setValue("description_fr", givenBlog.description_fr)
+            setValue("mainImageId", givenBlog.mainImageId)
+            setValue("mainImageUrl", givenBlog.mainImageUrl)
+            setValue("thumbImageId", givenBlog.thumbImageId)
+            setValue("thumbImageUrl", givenBlog.thumbImageUrl)
+            setValue("metaDescription_en", givenBlog.metaDescription_en)
+            setValue("metaDescription_fr", givenBlog.metaDescription_fr)
+            setValue("slug", givenBlog.slug)
+            setValue("title_en", givenBlog.title_en)
+            setValue("title_fr", givenBlog.title_fr)        
+        }
+    },[])
+    useEffect ( () => {
         const getCategories = async () => {
             try {
                 const result = await fetch ("/api/getCategories", {method:"GET"})
@@ -70,9 +102,19 @@ const AddBlog = () => {
         }
         getCategories();
     },[addCategorie])
+
+    const updateImages = async () => {
+        console.log("Updating IMages ...")
+        try {
+            const result = await fetch("/api/protected/refreshUTImages", {method : "GET"})
+            console.log(result)
+        } catch (err) {
+            console.log(err)
+        }
+    }
     return (
         <div className="flex flex-col w-full justify-start pb-2"> {/* px-8 md:px-24*/}
-            <FormHeader title = {"Ajouter un post de blog"} url = {"/admin/adminBlogPost"} />
+            {Object.keys(givenBlog).length != 0 ? <FormHeader title = {`Modifier Le post ${givenBlog.name_fr}`} url = {"/admin/adminBlogPost"} /> :<FormHeader title = {"Ajouter un post de blog"} url = {"/admin/adminBlogPost"} /> }
             <form className="flex flex-col items-center mt-9 gap-9 mx-9" onSubmit={handleSubmit(onSubmit)}>
             <div className="space-y-4 w-full max-w-screen-xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <h3 className="text-xl w-full">Meta Data</h3>
@@ -146,8 +188,9 @@ const AddBlog = () => {
             </div>
             </div>
             <div className="flex flex-col w-full max-w-screen-xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 gap-3">
-                <h3 className="text-xl">Images</h3>
-                <ImagesPreview setValue={setValue} name="mainImageUrl"/>
+                <h3 className="text-xl">Images</h3> 
+                <button type="button" className="btn-secondary" onClick={() => updateImages()}>Refresh</button>
+                <ImagesPreview setValue={setValue} name="mainImageUrl" apiRoute = "/api/getAllImages"/>
                 <InputText 
                             label="Image principale" 
                             name="mainImageUrl" 
@@ -156,7 +199,7 @@ const AddBlog = () => {
                             required = {true}  
                             errors = {errors}/>
                 <input type="hidden" name="mainImageId" {...register} />
-                <ImagesPreview setValue={setValue} name="thumbImageUrl"/>
+                <ImagesPreview setValue={setValue} name="thumbImageUrl" apiRoute = "/api/getAllImages"/>
                 <InputText 
                             label="Thumbnail image" 
                             name="thumbImageUrl" 
@@ -168,10 +211,6 @@ const AddBlog = () => {
             </div>
             <div className="flex flex-col w-full max-w-screen-xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <h3 className="text-xl">Contenue</h3>
-                {/* name_fr
-                name_en
-                description_fr
-                description_en */}
                 <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
                 <div className="">
                         <InputText 
@@ -246,7 +285,7 @@ const AddBlog = () => {
                         errors = {errors}/>
                 </div>
             </div>
-            <div className="w-full max-w-screen-xl">
+            <div className="w-full max-w-screen-xl mt-6">
                 <input type="submit" value="Sauvegarder" className="btn-secondary cursor-pointer self-start"/>
             </div>
             </div>

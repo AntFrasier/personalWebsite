@@ -1,5 +1,5 @@
 'use client'
-import { Dispatch, SetStateAction, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import LoadingSpinner from '../../LoadingSpinner'
 import { EndpointMetadata, UploadDropzone } from '@uploadthing/react'
 import { OurFileRouter } from '@/app/api/uploadthing/core'
@@ -8,21 +8,26 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 
 
-function AddImageModal({setImageModal} : {setImageModal:Dispatch<SetStateAction<boolean>>}) {
+function AddImageModal({setImageModal, givenImage = undefined} : {setImageModal:Dispatch<SetStateAction<boolean>> , givenImage?:{url:string, key:string}}) {
     const [loading, setLoading] = useState<boolean>()
     const [name_fr, setName_fr] = useState<string>("")
     const [name_en, setName_en] = useState<string>("")
     const [alt_fr, setAlt_fr] = useState<string>("")
     const [alt_en, setAlt_en] = useState<string>("")
     const [url, setUrl] = useState<string>("")
+    const [key, setKey] = useState<string>("")
     const [errors, setErrors] = useState<boolean>(true)
     const router = useRouter();
     const [previewImage, setPreviewImage] = useState(null)
     
+    useEffect ( () => {
+        if (givenImage) {
+            setUrl(givenImage.url)
+            setKey(givenImage.key)
+        }
+    },[])
 
     const saveImageTodB = async () => {
-       
-
         setLoading(true)
         try {
         const body = {
@@ -31,8 +36,9 @@ function AddImageModal({setImageModal} : {setImageModal:Dispatch<SetStateAction<
             alt_fr: alt_fr,
             alt_en: alt_en,
             url: url,
+            ut_key: key,
         }
-        const result = await fetch("/api/save-image", { 
+        const result = await fetch("/api/protected/save-image", { 
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(body),
@@ -74,6 +80,7 @@ function AddImageModal({setImageModal} : {setImageModal:Dispatch<SetStateAction<
                         console.log("Files: ", res);
                         // alert("Upload Completed");
                         setUrl(res[0].url)
+                        setKey(res[0].key)
                         
                         }}
                         onUploadError={(error: Error) => {
