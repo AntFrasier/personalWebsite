@@ -5,6 +5,7 @@ import { Locale } from "@/i18n-config"
 import { getAllposts } from "@/lib/getAllPosts"
 import BlogPreview from "@/app/components/blogComponent/BlogPreview"
 import Breadcrumb from "@/app/components/Breadcrumb"
+import BlogCategories from "@/app/components/blogComponent/BlogCategories"
 
 export async function generateMetadata({
   params: { lang },
@@ -45,18 +46,19 @@ const links = [
 
 ]
   return (
-    <main className="flex flex-col items-left justify-between max-w-4xl flex-col items-left justify-between lg:px-0 px-8">
-      <Breadcrumb links = {links} />
-        <h1 className="self-start">{dictionary.blog.h1}</h1>
-        
-        
-        <ul className='flex flex-col gap-5 mt-5 w-full max-w-4xl mb-16'>
-          {blogPosts?.map ((post) => {
-            return (
-              <BlogPreview key= {post.id} post = {post} lang={lang} />
-            )
-          })}
-        </ul>
+    <main className="flex justify-center flex-row gap-6">
+      <BlogCategories lang={lang}/>
+      <div className="flex flex-col items-left max-w-4xl px-9 pt-6 mt-6 justify-between bg-base-200 rounded-xl">
+        <Breadcrumb links = {links} />
+          <h1 className="self-start">{dictionary.blog.h1}</h1>
+          <ul className='flex flex-col gap-5 mt-5 w-full max-w-4xl mb-16'>
+            {blogPosts?.map ((post) => {
+              return (
+                <BlogPreview key= {post.id} post = {post} lang={lang} />
+              )
+            })}
+          </ul>
+      </div>
        
     </main>
   )

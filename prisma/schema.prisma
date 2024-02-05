@@ -60,6 +60,7 @@ model Categorie {
   name_en String
   slug    String @unique @default("to be replaced")
   posts   Post[]
+  portfolios   Portfolio[]
 }
 
 model Tag {
@@ -70,15 +71,18 @@ model Tag {
 }
 
 model DbImage {
-  id      Int             @unique @default(autoincrement())
-  name_fr String
-  name_en String
-  alt_fr  String
-  alt_en  String
-  url     String      
-  ut_key     String  
-  thumbImage Post[] @relation("thumbImage")
-  MainImage Post[] @relation("MainImage")
+  id            Int            @id @unique @default(autoincrement())
+  name_fr       String
+  name_en       String
+  alt_fr        String
+  alt_en        String
+  url           String      
+  ut_key        String  
+  thumbImage    Post[] @relation("thumbImage")
+  portfolioThumbImage Portfolio[] @relation("thumbImage")
+  MainImage     Post[] @relation("MainImage")
+  portfolioMainImage Portfolio[] @relation("MainImage")
+  stacks        Stack[] @relation("stacks")
   
 
   @@unique([id, url])
@@ -91,7 +95,6 @@ model TagsOnPosts {
   tagId      Int // relation scalar field (used in the `@relation` attribute above)
   assignedAt DateTime @default(now())
   assignedBy String
-
   @@id([postId, tagId])
 }
 
@@ -121,3 +124,38 @@ model Post {
   mainImageId        Int
   mainImageUrl       String
 }
+model Portfolio {
+  id                  Int             @id @unique @default(autoincrement())
+  name_fr             String
+  name_en             String
+  draft               Boolean         @default(true)
+  categorie           Categorie       @relation(fields: [categorieId], references: [id])
+  categorieId         Int
+  title_fr            String
+  title_en            String
+  slug                String          @unique
+  metaDescription_fr  String
+  description_fr      String
+  metaDescription_en  String
+  description_en      String
+  h1_fr               String
+  h1_en               String
+  content_fr          String //html
+  content_en          String //html
+  portfolioThumbImage DbImage           @relation("thumbImage" , fields: [thumbImageId], references: [id])
+  thumbImageId        Int
+  mainImage           DbImage           @relation("MainImage", fields: [mainImageId], references: [id])
+  mainImageId         Int
+  stacks              Stack[]
+  demoUrl             String
+  codeUrl             String
+}
+
+model Stack {
+  id                  Int @id @unique @default(autoincrement())
+  name                String
+  stackImage          DbImage @relation("stacks", fields: [imageId], references: [id])
+  imageId             Int
+  portfolios          Portfolio[]
+}
+

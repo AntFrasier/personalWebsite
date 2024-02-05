@@ -7,7 +7,7 @@ async function AdminHeader() {
     const session = await getServerSession()
     console.log(session)
   return (
-    <div className='flex flex-row items-center justify-between bg-gray-100 w-full p-3'>
+    <div className='flex flex-row items-center justify-between bg-white w-full p-3'>
         <p className='font-semibold text-2xl'>
             Back office 
         </p>

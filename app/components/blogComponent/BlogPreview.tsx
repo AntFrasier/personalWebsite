@@ -24,12 +24,15 @@ const BlogPreview = async ({post, lang} : {post:Post, lang :Locale}) => { //lang
                                     <span className="text-sm"> {lang == "fr"? post.description_fr : post.description_en} </span>
                                     {/* <p className="text-md pt-3 pb-3 font-bold">{post.categorieId} :</p>  */}
                                     <p className="flex flex-wrap gap-3">
+                                      <Link href={`/${lang}/blog/${categorie?.slug}`}>
                                       {lang == "fr"? categorie?.name_fr : categorie?.name_en}
+                                      </Link>
                                     </p>
                     </div>
+                    {/* socials */}
                   </div>
                   <div className='flex justify-center gap-10 mb-5'>  
-                    <Link href={`blog/${post.slug}`}>
+                    <Link href={`/${lang}/blog/${categorie?.slug}/${post.slug}`}>
                       <button type="button" className="btn-primary portfolio hover-underline ">{dictionary.blog.read}</button>
                     </Link>
                   </div>

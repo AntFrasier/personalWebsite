@@ -5,7 +5,6 @@ import { DbImage } from '@prisma/client';
 import AddImage from './AddImage';
 import AddImageModal from './form/AddImageModal';
 
-
 interface Images {   
     id: number;
     name_fr: string;
@@ -13,6 +12,7 @@ interface Images {
     alt_fr: string;
     alt_en: string;
     url: string;}
+
 function ImagesPreview({setValue, name, apiRoute}:{setValue? : any, name?:string, apiRoute:string}) {
     const [images, setAllImages] = useState<Images[]>()
     const [imageModal, setImageModal] = useState<boolean>(false)
@@ -25,17 +25,8 @@ function ImagesPreview({setValue, name, apiRoute}:{setValue? : any, name?:string
             setAllImages(data.body)
         }
         getImages();
-    },[])
+    },[imageModal])
 
-    // const defaultImage: DbImage = {
-    //     id:-1,
-    //     name_fr: "image par default",
-    //     name_en: "default image",
-    //     alt_fr: "image de blog par default",
-    //     alt_en: "default blog image",
-    //     url: "/img/blog/Blog_default_thumbnail.jpeg"
-
-    // }
 
     const setTheValues = (id :number, url:string) => {
         setValue(`${name}`, `${url}`)
@@ -47,6 +38,10 @@ function ImagesPreview({setValue, name, apiRoute}:{setValue? : any, name?:string
         if (name == "mainImageUrl") {
          console.log("main image ", id)
             setValue("mainImageId", id)
+        }
+        if (name == "stackUrl") {
+         console.log("stack image ", id)
+            setValue("imageId", id)
         }
         
         setValue(`${name}`, `${url}`)

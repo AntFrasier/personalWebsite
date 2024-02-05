@@ -1,23 +1,11 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 import prisma from '../../../lib/prisma';
+import getAllcategories from '@/lib/getAllcategories';
 
-type Data = {
-    id: number;
-    name_fr: string;
-    name_en: string;
-}[]
+async function handler(req:NextRequest) {
+    const result = await getAllcategories()
+    console.log(result)
+    return Response.json({body : result})
+}
 
-
-async function handler(req:NextRequest, res:NextResponse<Data>) {
-
-    if (req.method == 'POST') {
-        console.log("POST METHOD FOR ACTGORIES");
-    }
-    else {
-        const result = await prisma.categorie.findMany();
-        console.log(result)
-        return Response.json({body : result})
-    }
-    }
-
-export { handler as GET, handler as POST}
+export { handler as GET}

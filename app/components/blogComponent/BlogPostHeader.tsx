@@ -5,6 +5,8 @@ import Link from 'next/link'
 import React from 'react'
 import Breadcrumb from '../Breadcrumb'
 
+
+//@todo change the Post type to fixe type error
 function BlogPostHeader({lang, post} : {lang:Locale, post:Post}) {
     const links = [
         {
@@ -12,11 +14,11 @@ function BlogPostHeader({lang, post} : {lang:Locale, post:Post}) {
             name: "Blog",
         },
         {
-            slug: `blog/${post.categorie.name_fr}`,
+            slug: `blog/${post.categorie.slug}`,
             name: `${post.categorie.name_fr}`,
         },
         {
-            slug: `blog/${post.categorie.name_fr}/${post.slug}`, //todo add slug to categories
+            slug: `blog/${post.categorie.slug}/${post.slug}`, //todo add slug to categories
             name: `${post.name_fr}`,
         }
     ]

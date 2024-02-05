@@ -3,7 +3,7 @@ import React from 'react'
 
 function Breadcrumb({links}: {links : {slug:string, name:string}[]}) {
   return (
-    <ul id="breadcrumb" className='flex flex-row text-sm pt-3 '>
+    <ul id="breadcrumb" className='flex flex-row text-sm'>
         <li>
             <Link className="hover:underline" href={`/${links[0].slug}`} >{links[0].name}</Link>
         </li>

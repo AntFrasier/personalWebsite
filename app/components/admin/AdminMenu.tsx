@@ -13,7 +13,7 @@ const AdminMenu = () => {
         <Link href={`/admin/adminBlogPost`}  className="btn-primary">Blog</Link>
       </li>
       <li className='hover-underline'>
-        <Link href={`/admin/addPortfolio`}  className="btn-primary">Add portfolio</Link>
+        <Link href={`/admin/adminPortfolio`}  className="btn-primary">Portfolio</Link>
       </li>
       <li className='hover-underline'>
         <Link href={`/admin`}  className="btn-primary">Acount</Link>

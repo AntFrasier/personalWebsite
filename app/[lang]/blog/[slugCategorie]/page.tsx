@@ -5,6 +5,8 @@ import { Locale } from "@/i18n-config"
 import { getAllposts } from "@/lib/getAllPosts"
 import BlogPreview from "@/app/components/blogComponent/BlogPreview"
 import { getPostsByCategorie } from "@/lib/getPostsByCategorie"
+import Breadcrumb from "@/app/components/Breadcrumb"
+import BlogCategories from "@/app/components/blogComponent/BlogCategories"
 
 export async function generateMetadata({
   params: { lang, slugCategorie },
@@ -33,9 +35,23 @@ const Blog = async ({
   
 const dictionary = await getDictionary(lang) 
 const blogPosts = await getPostsByCategorie(slugCategorie)
+const links = [
+  {
+    slug : "blog",
+    name : "Blog"
+  },
+  {
+    slug : `${slugCategorie}`,
+    name : `${slugCategorie}`,
+  },
+
+]
 
   return (
-    <main className="flex flex-col items-center justify-between max-w-4xl flex-col items-left justify-between lg:px-0 px-8 xl:pt-24 pt-12 ">
+    <main className="flex justify-center flex-row gap-6">
+    <BlogCategories lang={lang}/>
+    <div className="flex flex-col items-left max-w-4xl px-9 pt-6 mt-6 justify-between bg-base-200 rounded-xl">
+      <Breadcrumb links = {links} />
         <h1 className="self-start">{dictionary.blog.h1}</h1>
         <ul className='flex flex-col gap-5 mt-5 w-full max-w-4xl mb-16'>
           {blogPosts?.map ((post) => {
@@ -44,7 +60,7 @@ const blogPosts = await getPostsByCategorie(slugCategorie)
             )
           })}
         </ul>
-       
+      </div>
     </main>
   )
 }

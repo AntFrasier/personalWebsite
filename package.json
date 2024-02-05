@@ -40,7 +40,7 @@
     "eslint": "latest",
     "eslint-config-next": "latest",
     "postcss": "latest",
-    "prisma": "^5.7.0",
+    "prisma": "^5.9.0",
     "tailwindcss": "latest",
     "typescript": "latest"
   }
