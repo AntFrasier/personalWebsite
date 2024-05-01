@@ -1,13 +1,15 @@
 import { Locale } from '@/i18n-config'
-import { Post } from '@prisma/client'
+import { Categorie, Post } from '@prisma/client'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import Breadcrumb from '../Breadcrumb'
 
+interface PostWithCategories extends Post{ 
+    categorie : Categorie
+}
 
-//@todo change the Post type to fixe type error
-function BlogPostHeader({lang, post} : {lang:Locale, post:Post}) {
+function BlogPostHeader({lang, post} : {lang:Locale, post:PostWithCategories}) {
     const links = [
         {
             slug: "blog",
