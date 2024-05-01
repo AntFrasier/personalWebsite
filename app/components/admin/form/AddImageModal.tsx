@@ -25,7 +25,7 @@ function AddImageModal({setImageModal, givenImage = undefined} : {setImageModal:
             setUrl(givenImage.url)
             setKey(givenImage.key)
         }
-    },[])
+    },[givenImage])
 
     const saveImageTodB = async () => {
         setLoading(true)

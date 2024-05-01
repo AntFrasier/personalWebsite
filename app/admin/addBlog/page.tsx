@@ -89,7 +89,8 @@ const AddBlog = ({searchParams} : {searchParams : Post}) => {
             setValue("title_en", givenBlog.title_en)
             setValue("title_fr", givenBlog.title_fr)        
         }
-    },[])
+    },[givenBlog])
+    
     useEffect ( () => {
         const getCategories = async () => {
             try {

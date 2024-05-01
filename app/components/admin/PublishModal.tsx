@@ -50,7 +50,7 @@ const PublishModal = ( {
                     Confirmation requise !
                 </h3>
                 <div className="h-full self-center align-center">
-                    Vous etes sur point de publier le blog : "{blog.name_fr}". Il sera donc accessible depuis le front et passera du status Brouillon à Publié.
+                    Vous etes sur point de publier le blog : `&quot;`{blog.name_fr}`&quot;`. Il sera donc accessible depuis le front et passera du status Brouillon à Publié.
                 </div>
                 <div className="flex self-center gap-3">
                     <button className="btn-secondary w-36 hover:bg-success" type="button" onClick={() => publishBlogPost(blog)} >Confirmer</button>

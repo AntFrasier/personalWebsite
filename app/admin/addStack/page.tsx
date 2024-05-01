@@ -76,7 +76,7 @@ const saveToDb = async (data : GivenStack) => {
             setValue("stackUrl", givenStack.stackUrl)
         }
         updateImages()
-    },[])
+    },[givenStack])
 
     return (
         <div className="flex flex-col w-full justify-start pb-2"> {/* px-8 md:px-24*/}

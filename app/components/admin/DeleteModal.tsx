@@ -48,7 +48,7 @@ const DeleteModal = ( {
                     ATTENTION ! Confirmation requise !
                 </h3>
                 <div className="h-full self-center align-center">
-                    Vous etes sur point d'effacer le blog : "{blog.name_fr}". Il sera donc effacer DEFINITIVEMENT. Aucun retour Possible ! 
+                    Vous etes sur point d`&apos;`effacer le blog : `&quot;`{blog.name_fr}`&quot;`. Il sera donc effacer DEFINITIVEMENT. Aucun retour Possible ! 
                 </div>
                 <div className="flex self-center gap-3">
                     <button className="btn-secondary w-36 hover:bg-success" type="button" onClick={() => deleteBlogPost(blog)} >ATTENTION Confirmer</button>

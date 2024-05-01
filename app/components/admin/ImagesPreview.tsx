@@ -25,7 +25,7 @@ function ImagesPreview({setValue, name, apiRoute}:{setValue? : any, name?:string
             setAllImages(data.body)
         }
         getImages();
-    },[imageModal])
+    },[imageModal, apiRoute])
 
 
     const setTheValues = (id :number, url:string) => {

@@ -54,7 +54,7 @@ const ChangeNameModal = ( {
                     Changer le nom du fichier
                 </h3>
                 <div className="h-full self-center align-center">
-                    Vous etes sur point de changer le nom de l'image.
+                    Vous etes sur point de changer le nom de l`&apos;`image.
                     <Image
                     className="m-auto p-3"
                         src={image.url}

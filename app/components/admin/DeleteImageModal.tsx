@@ -51,7 +51,7 @@ const DeleteImageModal = ( {
                     ATTENTION ! Confirmation requise !
                 </h3>
                 <div className="h-full self-center align-center">
-                    Vous etes sur point d'effacer cette image' : elle sera donc effacer DEFINITIVEMENT. Aucun retour Possible !
+                    Vous etes sur point d`&apos;`effacer cette image : elle sera donc effacer DEFINITIVEMENT. Aucun retour Possible !
                     <Image
                     className="m-auto p-3"
                         src={image.url}
