@@ -10,7 +10,7 @@ const AdminBlogPost = async ({ params: { lang }} : {params : {lang:Locale}}) => 
                 Admin Blog Posts
             </h2>
             <div className="flex flex-row wrap gap-6">
-                <ManagingCard name="blog" listUrl="/admin/blog" addUrl="/admin/AddBlog"/>
+                <ManagingCard name="blog" listUrl="/admin/blog" addUrl="/admin/addBlog"/>
                 <ManagingCard name="image" listUrl="/admin/image" addUrl="/admin/AddBlog"/>
             </div>
         </div>

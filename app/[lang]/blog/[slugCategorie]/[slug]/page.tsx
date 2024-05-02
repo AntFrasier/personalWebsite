@@ -1,6 +1,6 @@
 import { getDictionary } from '@/lib/dictionary'
 import type { Locale } from '@/i18n-config'
-import { getBlogPost } from '@/lib/getBlogPost'
+import { MyBlogPost, getBlogPost } from '@/lib/getBlogPost'
 import MyPost from '@/app/components/blogComponent/MyPost'
 import { Post } from '@prisma/client'
 import BlogPostHeader from '@/app/components/blogComponent/BlogPostHeader'
@@ -47,7 +47,7 @@ export default async function BlogPost({
 }) {
 
   const dictionary = await getDictionary(lang)
-  const blogPost:Post[] = await getBlogPost(slug);
+  const blogPost:MyBlogPost[] = await getBlogPost(slug);
   console.log(blogPost)
   if (blogPost.length == 0) {
     return (
@@ -55,7 +55,7 @@ export default async function BlogPost({
     )
   }
   else {
-    const myBlogPost:Post = blogPost[0]
+    const myBlogPost = blogPost[0]
     return (
       
       <main className="flex max-w-4xl flex-col items-left justify-between lg:px-0 px-8 overflow-hidden"> {/* px-8 md:px-24*/} 

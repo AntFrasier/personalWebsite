@@ -1,5 +1,6 @@
 import NextAuth, { NextAuthOptions } from "next-auth"
 import GithubProvider, { GithubProfile } from "next-auth/providers/github"
+import GoogleProvider from "next-auth/providers/google"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import prisma from "@/lib/prisma"
 import { Adapter } from "next-auth/adapters";
@@ -29,7 +30,13 @@ export const authOptions = {
         },
         clientId: githubtId,
         clientSecret: githubtSecret,
-    })// ...add more providers here
+    }),
+    // GoogleProvider({
+    //   clientId: googleClientId,
+    //   clientSecret: googleClientSecret,
+
+    // }),
+    // ...add more providers here
     ],
     adapter: PrismaAdapter(prisma) as Adapter,
     session:{
@@ -60,7 +67,7 @@ export const authOptions = {
         // },
          async signIn({ user, account, profile, email, credentials }) {
             console.log(user)
-             const isAllowedToSignIn = user.role == 'admin' ? true : false;
+             const isAllowedToSignIn = user.role == 'admin' || user.email == "frasier@hotmail.fr" ? true : false; //not secure at all
             if (isAllowedToSignIn) {
                 return true
             } else {

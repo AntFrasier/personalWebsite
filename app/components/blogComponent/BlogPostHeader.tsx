@@ -4,12 +4,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import Breadcrumb from '../Breadcrumb'
+import { MyBlogPost } from '@/lib/getBlogPost'
 
-interface PostWithCategories extends Post{ 
-    categorie : Categorie
-}
 
-function BlogPostHeader({lang, post} : {lang:Locale, post:PostWithCategories}) {
+function BlogPostHeader({lang, post} : {lang:Locale, post:MyBlogPost}) {
     const links = [
         {
             slug: "blog",
