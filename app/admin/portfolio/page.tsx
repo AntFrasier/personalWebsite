@@ -19,7 +19,7 @@ const Portfolio = async () => {
             ) : (
               portfolios?.map( (portfolio) => {
                 return (
-                  <div className="bg-secondary p-5 m-b-5 rounded-xl">
+                  <div key = {portfolio.id} className="bg-secondary p-5 m-b-5 rounded-xl">
                     <div className="flex flex-row gap-3 pt-3">
                       <AdminPortfolioButtons portfolio={portfolio}/>
                     </div>

@@ -39,7 +39,7 @@ const portfolios : ReturnedPortfolio[] = await getPortfolios();
             ) : (
               portfolios?.map( (portfolio) => {
                 return (
-                   <PortfolioCard portfolio = {portfolio} lang = {lang}/>
+                   <PortfolioCard key={portfolio.id} portfolio = {portfolio} lang = {lang}/>
                 )
             })
             )}
