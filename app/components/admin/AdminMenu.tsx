@@ -16,6 +16,9 @@ const AdminMenu = () => {
         <Link href={`/admin/adminPortfolio`}  className="btn-primary">Portfolio</Link>
       </li>
       <li className='hover-underline'>
+        <Link href={`/admin/image`}  className="btn-primary">Images</Link>
+      </li>
+      <li className='hover-underline'>
         <Link href={`/admin`}  className="btn-primary">Acount</Link>
       </li>
       <li className='hover-underline'>

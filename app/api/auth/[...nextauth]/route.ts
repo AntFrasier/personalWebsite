@@ -1,19 +1,16 @@
 import NextAuth, { NextAuthOptions } from "next-auth"
 import GithubProvider, { GithubProfile } from "next-auth/providers/github"
-import GoogleProvider from "next-auth/providers/google"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import prisma from "@/lib/prisma"
 import { Adapter } from "next-auth/adapters";
-import { redirect } from "next/dist/server/api-utils";
 
-// const prisma = new PrismaClient()
 const githubtId = process.env.GITHUB_CLIENT_ID as string
 const githubtSecret = process.env.GITHUB_SECRET as string
 
 
-if (!githubtId || !githubtSecret) {
-    throw new Error ('git hub cred missing')
-}
+// if (!githubtId || !githubtSecret) {
+//     throw new Error ('git hub cred missing')
+// }
 
 export const authOptions = {
   providers: [
@@ -31,12 +28,6 @@ export const authOptions = {
         clientId: githubtId,
         clientSecret: githubtSecret,
     }),
-    // GoogleProvider({
-    //   clientId: googleClientId,
-    //   clientSecret: googleClientSecret,
-
-    // }),
-    // ...add more providers here
     ],
     adapter: PrismaAdapter(prisma) as Adapter,
     session:{
@@ -49,24 +40,13 @@ export const authOptions = {
             return token
         },
         session({ session, token }) {
-            // console.log(user, token)
             return { ...session,
               user: { ...session.user,
                 role: token.role,
               }
             }
           },
-        // async session ({session, token}) {
-
-        //     if (session.user) {
-        //         session.user.role = token.role
-        //         // session.user.id = user.id
-        //     }
-            
-        //     return session
-        // },
-         async signIn({ user, account, profile, email, credentials }) {
-            console.log(user)
+         async signIn({ user }) {
              const isAllowedToSignIn = user.role == 'admin' || user.email == "frasier@hotmail.fr" ? true : false; //not secure at all
             if (isAllowedToSignIn) {
                 return true

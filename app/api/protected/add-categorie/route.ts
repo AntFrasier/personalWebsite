@@ -19,7 +19,6 @@ async function handler(req:Request) {
           slug:slug,
         },
       });
-      console.log("the result ", result)
       return Response.json({body : result});
   }} catch (err) {
     console.log(err)

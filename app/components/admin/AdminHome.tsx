@@ -5,7 +5,6 @@ import Image from "next/image"
 
 const AdminHome = () => {
     const { data: session } = useSession()
-    console.log(session?.user)
     if (session) {
     return (
         <div>

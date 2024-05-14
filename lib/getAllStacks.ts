@@ -1,3 +1,4 @@
+import { DbImage, Stack } from "@prisma/client";
 import prisma from "./prisma"
 
 
@@ -8,4 +9,8 @@ export default async function getAllStacks () {
         }
     });
     return result
+}
+
+export interface ReturnedStack extends Stack {
+    stackImage : DbImage,
 }

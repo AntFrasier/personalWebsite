@@ -1,9 +1,10 @@
 import { Locale } from '@/i18n-config'
 import getAllcategories from '@/lib/getAllcategories'
+import getBlogcategories from '@/lib/getBlogCategories'
 import Link from 'next/link'
 
 async function BlogCategories({ lang }:{lang: Locale}){
-    const categories = await getAllcategories()
+    const categories = await getBlogcategories()
   return (
     <div className="flex flex-col items-left mt-6">
         <div className="bg-base-200 w-48 rounded-xl">

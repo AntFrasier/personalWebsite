@@ -2,27 +2,27 @@
 
 import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useState } from "react";
-import LoadingSpinner from "../LoadingSpinner";
-import { Post } from "@prisma/client";
+import { Portfolio } from "@prisma/client";
+import LoadingSpinner from "../../LoadingSpinner";
 
 
-const DeleteModal = ( {
+const DeletePortfolioModal = ( {
     setModal, 
-    blog,
+    portfolio,
 } : {
     setModal : Dispatch<SetStateAction<boolean>>, 
-    blog:Post,
+    portfolio:Portfolio,
 }) => {
     const [loading, setLoading] = useState<boolean>(false)
     const router = useRouter()
-    const deleteBlogPost = async (blog : Post) => {
+    const deletePortfolio = async (portfolio : Portfolio) => {
         setLoading(true)
         try {
             const body = {
-                id : blog.id,
+                id : portfolio.id,
             }
-            console.log( "blog delete confirmed", blog.id)
-            const result = await fetch("/api/protected/delete-post", { //cant do a server side function because i'm in a use client component
+            console.log( "blog delete confirmed", portfolio.id)
+            const result = await fetch("/api/protected/delete-portfolio", { //cant do a server side function because i'm in a use client component
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body),
@@ -48,10 +48,10 @@ const DeleteModal = ( {
                     ATTENTION ! Confirmation requise !
                 </h3>
                 <div className="h-full self-center align-center">
-                    Vous etes sur point d`&apos;`effacer le blog : `&quot;`{blog.name_fr}`&quot;`. Il sera donc effacer DEFINITIVEMENT. Aucun retour Possible ! 
+                    Vous etes sur point d`&apos;`effacer le portfolio : `&quot;`{portfolio.name_fr}`&quot;`. Il sera donc effacer DEFINITIVEMENT. Aucun retour Possible ! 
                 </div>
                 <div className="flex self-center gap-3">
-                    <button className="btn-secondary w-36 hover:bg-success" type="button" onClick={() => deleteBlogPost(blog)} >ATTENTION Confirmer</button>
+                    <button className="btn-secondary w-36 hover:bg-success" type="button" onClick={() => deletePortfolio(portfolio)} >ATTENTION Confirmer</button>
                     <button className="btn-secondary w-36 hover:bg-warning" type="button" onClick={() => setModal(false)} >Annuler</button>
                 </div>
                  {loading ? <LoadingSpinner /> : null}
@@ -60,4 +60,4 @@ const DeleteModal = ( {
         </>
     )
 }
-export default DeleteModal
+export default DeletePortfolioModal

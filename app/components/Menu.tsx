@@ -1,9 +1,11 @@
 import React from 'react';
 import Link from "next/link";
 import { Dictionary } from '@/lib/dictionary';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../api/auth/[...nextauth]/route';
 
-const Menu = ({dictionary} : {dictionary : Dictionary}) => {
-  
+const Menu = async ({dictionary} : {dictionary : Dictionary}) => {
+  const session = await getServerSession(authOptions);
   return (
     <>
       <li className='hover-underline'>
@@ -21,6 +23,14 @@ const Menu = ({dictionary} : {dictionary : Dictionary}) => {
       <li className='hover-underline'>
         <Link href={`/${dictionary?.lang}/blog`}  className="btn-primary">Blog</Link>
       </li>
+      {session ? ( 
+        <li className='hover-underline'>
+        <Link href={`/admin`}  className="btn-primary">Admin</Link>
+      </li>
+
+      ) : (
+        null
+       )}
     </>
   )
 }

@@ -1,7 +1,8 @@
 import getAllStacks from '@/lib/getAllStacks'
 import Image from 'next/image'
 import AddIcon from '@mui/icons-material/Add';
-import ModeIcon from '@mui/icons-material/Mode';import Link from 'next/link';
+import ModeIcon from '@mui/icons-material/Mode';
+import Link from 'next/link';
 
 
 async function Stacks() {
@@ -12,12 +13,12 @@ async function Stacks() {
         <ul className='flex flex-col gap-3'>
             {stacks?.map ( (stack) => {
                 return (
-                    <li key={stack.id} className='flex flex-row bg-base-200 w-48 justify-between items-center p-3 rounded-xl'>
+                    <li key={stack.id} className='flex flex-row bg-base-200 justify-between items-center p-3 gap-5 rounded-xl'>
                         <h2 className='mt-0'>
                             {stack.name}
                         </h2>
                         <Image 
-                        className='rounded-xl'
+                        className='rounded-xl bg-black'
                             src={stack.stackImage.url}
                             alt={stack.stackImage.alt_fr}
                             width={50}

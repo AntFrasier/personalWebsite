@@ -7,7 +7,6 @@ import Image from "next/image"
 const AdminBlogPostSlug = async ({params : {lang , slug}} : {params : {lang : Locale, slug : string}}) => {
     const blogPost = await getBlogPost(slug)
     const categorie = await getCategorieName(blogPost[0].categorieId)
-    console.log(blogPost)
     return (
         <div className="w-full">
             {blogPost[0].mainImageUrl? <Image 

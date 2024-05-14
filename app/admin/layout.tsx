@@ -27,7 +27,7 @@ export default async function RootLayout({
 
   return (
     <html lang="fr">
-      <body className='flex flex-row relative bg-blue-50'>
+      <body className='flex flex-row relative bg-blue-50 min-h-screen'>
         <AdminSideBar />
           <div className="flex flex-col w-full">
             <AdminHeader />
