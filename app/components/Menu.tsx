@@ -2,7 +2,8 @@ import React from 'react';
 import Link from "next/link";
 import { Dictionary } from '@/lib/dictionary';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '../api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/authOptions';
+
 
 const Menu = async ({dictionary} : {dictionary : Dictionary}) => {
   const session = await getServerSession(authOptions);

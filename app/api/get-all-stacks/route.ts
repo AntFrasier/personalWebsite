@@ -1,6 +1,6 @@
 import getAllStacks from '@/lib/getAllStacks';
 
-async function handler() :   Promise<never[] | Response>{ //added return typed to avoid vercel error
+async function handler() { //added return typed to avoid vercel error
 
         try {
             const result = await getAllStacks();

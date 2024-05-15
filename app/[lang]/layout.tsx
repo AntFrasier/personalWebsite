@@ -8,6 +8,7 @@ import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Metadata } from 'next'
+import { Session } from 'next-auth'
 
  
 
@@ -36,9 +37,11 @@ export async function generateStaticParams() { //internationalization param
 export default function RootLayout({
   children,
   params,
+  session
 }: {
-  children: React.ReactNode
-  params: {lang:Locale}
+  children: React.ReactNode,
+  params: {lang:Locale},
+  session : Session
 }) {
   return (
 
@@ -54,7 +57,7 @@ export default function RootLayout({
       </Script>
       <body className={inter.className + " bg-primary flex flex-col min-h-screen "}>
         <div id="background">
-          <Providers>
+          <Providers session = {session}>
             <Header lang={params.lang} />
             {children}
             <Footer lang={params.lang} />

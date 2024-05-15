@@ -1,9 +1,16 @@
 'use client'
+
+import { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react"
 import { ThemeProvider } from "next-themes"
+import { ReactNode } from "react";
 
-const Providers = ({ children, session 
-} //that is bad ... but got a type error that i cant fixe ... @todo Fixe that error
+const Providers = ({ 
+  children, 
+  session
+} : { 
+  children: ReactNode,
+  session : Session},
  )  => {
   return (
     <ThemeProvider>
