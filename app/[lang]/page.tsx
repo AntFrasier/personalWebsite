@@ -14,10 +14,14 @@ export async function generateMetadata({
 }) {
   // read route params
 const dictionary = await getDictionary(lang)
+const otherLang = lang == "fr" ? {"en" : "/en/"} : {"fr" : "/fr/"}
 return {
   title: dictionary.home.metaTitle,//"Cyril Maranber | Web Developer",
   description: dictionary.home.metaDescription, //"Welcome to my personal website. you'll find here all the information regarding, what i've done",
-
+  alternates : {
+    canonical: `/${lang}/`,
+    languages: otherLang,
+  }
 }
 }
 
