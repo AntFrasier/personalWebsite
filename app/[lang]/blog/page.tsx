@@ -20,7 +20,7 @@ return {
   title: dictionary.blog.metaTitle,//"Cyril Maranber | Web Developer",
   description: dictionary.blog.metaDescription, //"Welcome to my personal website. you'll find here all the information regarding, what i've done",
   alternates : {
-    canonical: `/${lang}/contact`,
+    canonical: `/${lang}/blog`,
     languages: otherLang,
 },
 }
