@@ -47,9 +47,14 @@ function PortfolioCard({ portfolio, lang } : {portfolio : ReturnedPortfolio, lan
                   </Link>
                   ) : (
                     null)}
-                  <Link href={portfolio.codeUrl} target="_blank" rel="noopener nofollow noreferer">
+                  {portfolio.codeUrl? (
+                    <Link href={portfolio.codeUrl} target="_blank" rel="noopener nofollow noreferer">
                     <button type="button" className="btn-primary portfolio hover-underline ">Code</button>
                   </Link>
+                  ) : (
+                    null
+                  )}
+                  
           </div>
         </div>
 </li>

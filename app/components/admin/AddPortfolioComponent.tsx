@@ -214,7 +214,7 @@ export default function AddPortfolioComponent  ({givenPortfolio} : {givenPortfol
                 <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
                 <div className="">
                         <InputText 
-                            label="Nom du Post" 
+                            label="Nom du Portfolio" 
                             name="name_fr" 
                             lang="fr" 
                             register = {register}
@@ -223,7 +223,7 @@ export default function AddPortfolioComponent  ({givenPortfolio} : {givenPortfol
                 </div>
                 <div className="">
                         <InputText 
-                            label="Post Name" 
+                            label="Portfolio Name" 
                             name="name_en" 
                             lang="en" 
                             register = {register}
@@ -281,7 +281,7 @@ export default function AddPortfolioComponent  ({givenPortfolio} : {givenPortfol
                             name="codeUrl" 
                             lang={null}
                             register = {register}
-                            required = {true}  
+                            required = {false}  
                             errors = {errors}/>
                 </div>
                 <div className="sm:col-span-2">
