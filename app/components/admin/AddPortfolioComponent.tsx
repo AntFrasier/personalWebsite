@@ -113,16 +113,6 @@ export default function AddPortfolioComponent  ({givenPortfolio} : {givenPortfol
         allStacks();
     },[addCategorie])
 
-    const updateImages = async () => {
-        console.log("Updating IMages ...")
-        try {
-            const result = await fetch("/api/protected/refreshUTImages", {method : "GET"})
-            console.log(result)
-        } catch (err) {
-            console.log(err)
-        }
-    }
-
     return (
         <div className="flex flex-col w-full justify-start pb-2"> {/* px-8 md:px-24*/}
             {givenPortfolio != undefined && Object.keys(givenPortfolio).length != 0 ? <FormHeader title = {`Modifier Le portfolio ${givenPortfolio.name_fr}`} url = {"/admin/adminPortfolio"} /> :<FormHeader title = {"Ajouter un portfolio"} url = {"/admin/adminPortfolio"} /> }
@@ -210,11 +200,12 @@ export default function AddPortfolioComponent  ({givenPortfolio} : {givenPortfol
             </div>
             <div className="flex flex-col w-full max-w-screen-xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 gap-3">
                 <h3 className="text-xl">Images</h3> 
-                <button type="button" className="btn-secondary" onClick={() => updateImages()}>Refresh</button>
                 <ImagesPreview setValue={setValue} name="mainImageUrl" apiRoute = "/api/getAllImages"/>
                 <input type="hidden" name="mainImageId" {...register} />
+                <h4>Main Image :</h4>
                 <SelectedImage imageId={watch("mainImageId", getValues("mainImageId"))} />
                 <ImagesPreview setValue={setValue} name="thumbImageUrl" apiRoute = "/api/getAllImages"/>
+                <h4>Thumbnail Image :</h4>
                 <SelectedImage imageId={watch("thumbImageId", getValues("thumbImageId"))} />
                 <input type="hidden" name="thumbImageId" {...register} />
             </div>
@@ -281,7 +272,7 @@ export default function AddPortfolioComponent  ({givenPortfolio} : {givenPortfol
                             name="demoUrl" 
                             lang={null}
                             register = {register}
-                            required = {true}  
+                            required = {false}  
                             errors = {errors}/>
                 </div>
                 <div className="">

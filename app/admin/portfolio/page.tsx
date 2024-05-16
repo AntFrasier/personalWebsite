@@ -14,7 +14,7 @@ const Portfolio = async () => {
           {(portfolios.length == 0) ? (
             <div>
               <span>No Portfolios</span>
-                  <AddPortfolio />
+                  
             </div>
             ) : (
               portfolios?.map( (portfolio) => {
@@ -28,7 +28,10 @@ const Portfolio = async () => {
                   </div>
                 )
             })
-            )}
+          )}
+          <div className="bg-secondary p-5 m-b-5 rounded-xl flex flex-row justify-center">
+            <AddPortfolio />
+          </div>
         </ul>
     </main>
   )

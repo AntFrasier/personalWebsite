@@ -34,10 +34,6 @@ export default function SelectedImage({imageId, size} : {imageId: number, size?:
 
   return (
     <div className='flex flex-col items-center justify-center relative'>
-        
-        <h3>
-            Selected Image
-        </h3>
         <div className='absolute bg-blur'>
             {loading && <LoadingSpinner /> }
         </div>

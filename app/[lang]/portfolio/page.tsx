@@ -2,7 +2,8 @@ import React from "react"
 import { Locale } from "@/i18n-config"
 import { getDictionary } from "@/lib/dictionary"
 import PortfolioCard from "@/app/components/PortfolioCard"
-import getPortfolios, { ReturnedPortfolio } from "@/lib/getPortfolios"
+import { ReturnedPortfolio } from "@/lib/getPortfolios"
+import getPublishedPortfolios from "@/lib/getPublishedPortfolio"
 
 export async function generateMetadata({
   params: { lang },
@@ -29,7 +30,7 @@ const Portfolio = async ({
 }) => {
   // read route params
 const dictionary = await getDictionary(lang);
-const portfolios : ReturnedPortfolio[] = await getPortfolios();
+const portfolios : ReturnedPortfolio[] = await getPublishedPortfolios();
   return (
     <main className="flex flex-col items-center justify-between max-w-4xl flex-col items-left justify-between lg:px-0 px-8 xl:pt-24 pt-12 ">
         <h1 className="self-start">{dictionary.portfolio.h1}</h1>

@@ -7,9 +7,10 @@ import Link from 'next/link';
 function AddPortfolio() {
 
   return (
-    <div className='relative'>
+    <div className='relative hover:bg-primary p-2 rounded-xl'>
         <Link href={"addPortfolio"}>
-                <AddIcon />
+          <b>Add</b> 
+          <AddIcon />
         </Link>
     </div>
   )
