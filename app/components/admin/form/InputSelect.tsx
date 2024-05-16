@@ -19,7 +19,6 @@ function InputSelect({
     placeHolder?:any
     options:Categorie[] | undefined,
     }) {
-        console.log(options)
     return (
         <>
         <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">{label}</label>

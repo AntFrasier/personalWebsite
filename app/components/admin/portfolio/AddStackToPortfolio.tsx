@@ -24,8 +24,10 @@ function AddStackToPortfolio({
 
     const [stackModal, setStackModal] = useState(false)
     const [currentStacks, setCurrentStacks] = useState<Stack[]>([])
+
     useEffect(() => {
         setValue("stacks", currentStacks)
+        console.log("currentStacks : " ,currentStacks)
     },[currentStacks])
 
     useEffect(() => {

@@ -21,7 +21,6 @@ export default function SelectedImage({imageId, size} : {imageId: number, size?:
                 body : data
             })
             const Myimage = await result.json()
-            console.log("selected image : ", Myimage)
             setImage(Myimage.body)
             } catch (err) {
                 console.log(err)
