@@ -48,7 +48,7 @@ export default function RootLayout({
     <html lang={params.lang}>
     {/* Google analytics script Has to be tested */}
     <Script defer src="https://www.googletagmanager.com/gtag/js?id=G-M4QVX2EWTN"/>
-    <Script id="GA">
+    <Script defer id="GA">
       {
         `window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
