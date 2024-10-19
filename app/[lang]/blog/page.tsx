@@ -7,6 +7,7 @@ import BlogPreview from "@/app/components/blogComponent/BlogPreview"
 import Breadcrumb from "@/app/components/Breadcrumb"
 import BlogCategories from "@/app/components/blogComponent/BlogCategories"
 
+
 export async function generateMetadata({
   params: { lang },
 }: {

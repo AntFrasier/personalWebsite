@@ -6,12 +6,16 @@ import Menu from "./Menu"
 import MenuModal from "./MenuModal"
 import { getDictionary } from "@/lib/dictionary"
 import { Locale } from "@/i18n-config"
+import { getServerSession } from "next-auth"
+import { authOptions } from "@/lib/authOptions"
 
 const Header = async ({
   lang } : 
   {lang : Locale
   }) => {
     const dictionary = await getDictionary(lang);
+    const session = await getServerSession(authOptions);
+    
 
   return (
     <>
@@ -29,12 +33,12 @@ const Header = async ({
       </Link>
       <nav className="md:block hidden">
         <ul className="flex gap-5">
-         <Menu dictionary={dictionary}/>
+         <Menu dictionary={dictionary} session={session}/>
         </ul>
       </nav>
       <div className="flex flex-row ml-auto gap-3">
         <nav id="burger" className="md:hidden">
-          <MenuModal dictionary={dictionary}/>
+          <MenuModal dictionary={dictionary} session = {session}/>
         </nav>
         <div>
           <LocaleSwitcher lang={dictionary.lang}/>

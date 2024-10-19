@@ -1,7 +1,7 @@
 import { Locale } from "@/i18n-config"
 import ManagingCard from "@/app/components/admin/ManagingCard";
 
-const AdminBlogPost = async ({ params: { lang }} : {params : {lang:Locale}}) => {
+const adminBlogPost = async ({ params: { lang }} : {params : {lang:Locale}}) => {
     
    
     return (
@@ -18,4 +18,4 @@ const AdminBlogPost = async ({ params: { lang }} : {params : {lang:Locale}}) => 
     )
 }
 
-export default AdminBlogPost
+export default adminBlogPost

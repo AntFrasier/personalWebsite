@@ -18,8 +18,8 @@ anime the logo on hover
 ~~do footer~~  
 ~~change favicon~~  
 change the photo main page  
-check metadata for all pages  
-check heading tags for all pages  
+~~check metadata for all pages~~  
+~~check heading tags for all pages ~~ 
 ~~add multilangue support (fr, en, es) ~~
 add a donwload option possibility for the resume,  
 
@@ -38,7 +38,7 @@ do pages :
 create blog post :
     article 1 : Comment fonctionne un echangeur decentralié ?  
     article 2 : what is a wallet  
-    article 3 : what is speed run ethereum ?  
+    article 3 : what is speed run ethereum and buidl guidl ?  
 
 
 ~~@todo ! IMPORTANT PROTECT all admin Routes~~
@@ -47,4 +47,6 @@ create blog post :
 
 reflexion for the future of this web site :
 add a web3 part : ex connect your wallet and get an NFT that is a proof of visiting the web site ...
+modif contact page / add a contact form and modifie front
+
 

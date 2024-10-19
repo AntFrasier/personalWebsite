@@ -1,12 +1,13 @@
 import React from 'react';
 import Link from "next/link";
 import { Dictionary } from '@/lib/dictionary';
-import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/authOptions';
+import { Session } from 'next-auth';
 
 
-const Menu = async ({dictionary} : {dictionary : Dictionary}) => {
-  const session = await getServerSession(authOptions);
+
+const Menu = ({dictionary, session} : {dictionary : Dictionary, session? : Session | null}) => {
+  
   return (
     <>
       <li className='hover-underline'>
